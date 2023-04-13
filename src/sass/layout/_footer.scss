@@ -18,15 +18,29 @@
     margin-bottom: -2px;
 
     animation-name: footerHeartBeat;
-    animation-duration: 1000ms;
-    animation-timing-function: linear;
+    animation-duration: 777ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
 
   &__link {
     text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+
     color: inherit;
+    display: inline-block;
+
+    transition-property: all;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      color: rgb(255, 100, 0);
+      text-decoration-color: transparent;
+    }
   }
 }
 
@@ -57,6 +71,6 @@
   }
 
   100% {
-    transform: scale(1.666);
+    transform: scale(1.5);
   }
 }
