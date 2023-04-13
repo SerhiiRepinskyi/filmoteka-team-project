@@ -1,5 +1,12 @@
 // ❗️❗️❗️Головний файл стилів❗️❗️❗️
 
+@import './base/common';
 @import './base/reset';
-@import './components/footer';
-@import './components/modal_card.scss';
+
+@import './components/container';
+
+@import './utils/vars';
+@import './utils/hidden';
+
+@import './layout/footer';
+
