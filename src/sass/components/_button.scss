@@ -1,0 +1,24 @@
+.btn {
+  display: block;
+  background-color: #ffffff;
+  color: #000000;
+  border-color: transparent;
+  border-radius: 100px;
+  padding: 10px 26px 10px 26px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+}
+
+.btn--current {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.lib {
+  color: #b92f2c;
+}
+.lib--active {
+  background-color: #b92f2c;
+  color: #ffffff;
+}

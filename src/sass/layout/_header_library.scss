@@ -1,0 +1,98 @@
+.header_container {
+  border-radius: 10px;
+  padding-top: 14px;
+  padding-bottom: 24px;
+  max-width: 1280px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ),
+    url(../img/orange_bcg_mobile.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+  //   transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .header_container {
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ), url(../img/orange_bcg_mobile_2x.jpeg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header_container {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-position: top right; 
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ), url(../img/orange_bcg_desktop.jpeg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .header_container {
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ), url(../img/orange_bcg_desktop_2x.jpeg);
+  }
+}
+
+
+.btn_group {
+  display: flex;
+  gap: 4px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+
+}
+@media screen and (min-width: 768px) {
+.btn_group {
+  align-items: start;
+}
+
+}
+.main_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 300px;
+  padding-bottom: 16px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: calc(38 / 32);
+  @media screen and (min-width: 768px) {
+    // display: flex;
+    justify-content: start;
+   
+   
+  }
+  
+}
+
+.main_title::before {
+  margin-right: 8px;
+  display: block;
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/film-svg.svg);
+}
