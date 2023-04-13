@@ -9,66 +9,84 @@
       rgba(0, 0, 0, 0.4) 65.37%
     ),
     url(../img/orange_bcg_mobile.jpeg);
-  background-position: center;
+  background-position: top right;
   background-repeat: no-repeat;
   background-size: cover;
- 
+  orientation: portrait;
+
   //   transform: matrix(-1, 0, 0, 1, 0, 0);
+  @media screen and (min-width: 768px) {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 16px 32px 32px 32px;
+  }
 }
 
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .header_container {
     background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ), url(../img/orange_bcg_mobile_2x.jpeg);
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.4) 65.37%
+      ),
+      url(../img/orange_bcg_mobile_2x.jpeg);
   }
 }
 
 @media screen and (min-width: 768px) {
   .header_container {
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    background-position: top right; 
+    background-position: top right;
     background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ), url(../img/orange_bcg_desktop.jpeg);
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.4) 65.37%
+      ),
+      url(../img/orange_bcg_desktop.jpeg);
   }
 }
 
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .header_container {
+    orientation: landscape;
     background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ), url(../img/orange_bcg_desktop_2x.jpeg);
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.4) 65.37%
+      ),
+      url(../img/orange_bcg_desktop_2x.jpeg);
   }
 }
-
 
 .btn_group {
   display: flex;
   gap: 4px;
 }
 
-.bottom {
+.btn_bottom {
   display: flex;
   justify-content: center;
-
 }
 @media screen and (min-width: 768px) {
-.btn_group {
-  align-items: start;
+  .btn_group {
+    align-items: start;
+    margin-bottom: 105px;
+  }
 }
 
-}
-.main_title {
+.logo_lib {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,17 +100,24 @@
   @media screen and (min-width: 768px) {
     // display: flex;
     justify-content: start;
-   
-   
+    padding: 0;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: calc(47 / 40);
   }
-  
 }
 
-.main_title::before {
+.logo_lib::before {
   margin-right: 8px;
   display: block;
   content: '';
   width: 32px;
   height: 32px;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(../img/film-svg.svg);
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 }
