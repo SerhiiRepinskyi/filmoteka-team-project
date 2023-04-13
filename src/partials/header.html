@@ -1,8 +1,52 @@
-<header class="header" id="header">
-  <div class="container header">
-
-    <h2>Start project!!!</h2>
-    
-
+<header class="header-home" id="header-home">
+  <div class="container">
+    <div class="header-home__wrapper">
+      <nav class="home-nav">
+        <ul class="home-nav__list">
+          <li class="home-nav__item">
+            <a
+              class="home-nav__btn btn--current btn--nome"
+              href="#"
+            >
+              Home
+          </a>
+          </li>
+          <li class="home-nav__item">
+            <a class="home-nav__btn btn--library" href="#">
+              My Library
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <form class="header-form">
+        <div class="header-form__search">
+          <input
+            type="text"
+            name="search"
+            class="header-form__input"
+            placeholder="Movie Search"
+          />
+          <button type="submit" class="header-form__btn">
+            <svg class="header-form__icon">
+              <use
+                href="./img/symbol-defs.svg#icon-header-home-search"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <div class="header-home-warning"></div>
+      <div class="header-logo">
+        <a href="./index.html" class="header-logo__link">
+          <svg class="header-logo__film">
+            <use
+              class="header-logo__icon"
+              href="./img/symbol-defs.svg#icon-header-home-logo"
+            ></use>
+          </svg>
+          <span class="header-logo__name">Filmoteka</span>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
