@@ -3,10 +3,10 @@
 @import './base/common';
 @import './base/reset';
 
+@import './components/modal_card.scss';
 @import './components/container';
 
 @import './utils/vars';
 @import './utils/hidden';
 
 @import './layout/footer';
-@import './components/modal-card';
