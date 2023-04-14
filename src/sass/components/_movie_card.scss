@@ -1,0 +1,117 @@
+.cards__list {
+  display: flex;
+  justify-content: center;
+  row-gap: 32px;
+  margin: 0 auto;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    column-gap: 16px;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.card-item {
+}
+
+.movie__poster {
+  border-radius: 5px;
+  width: 100%;
+
+  @media screen and (min-width: 480px) {
+    width: 280px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 390px;
+    height: 575px;
+    margin-bottom: 12px;
+  }
+}
+
+.image__wrapper {
+  display: flex;
+  border-radius: 5px;
+  width: 280px;
+  background-size: cover;
+  margin: 0 auto;
+  @media screen and (min-width: 480px) {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 390px;
+    height: 575px;
+    margin-bottom: 12px;
+  }
+}
+
+.card-item__title {
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--primary-text-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.card-item__info {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.card-item__genre {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--secondary-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.card-item__year {
+  font-weight: 500;
+  color: var(--secondary-color);
+  font-size: 12px;
+  line-height: 1.33;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
