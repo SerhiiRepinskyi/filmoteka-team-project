@@ -1,0 +1,43 @@
+<button type="button" class="auth-modal-button auth-modal-open">Sign In</button>
+<button type="button" class="auth-modal-button sign-out-button">Sign Out</button>
+
+<div class="auth-modal-backdrop auth-modal-is-hidden">
+  <div class="auth-modal">
+    <button type="button" class="auth-modal-close">X</button>
+    <div class="form-box login-form-box">
+      <h2 class="auth-title">Sign In</h2>
+      <form class="login-form auth-form">
+        <div class="input-wrapper">
+          <input type="email" name="email" id="login-email" placeholder="." class="auth-input">
+          <label for="login-email" class="auth-input-label">Email</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="password" name="login-password" id="login-password" placeholder="." class="auth-input">
+          <label for="login-password" class="auth-input-label">Password</label>
+        </div>
+        <button type="submit" class="login-button auth-button">Sign In</button>
+      </form>
+      <p class="auth-switch-form-text">Don't have an account yet?</p>
+      <button type="button" class="auth-switch-form-button show-register">Create one here</button>
+    </div>
+
+
+    <div class="form-box register-form-box register-hidden">
+      <h2 class="auth-title">Sign Up</h2>
+      <form class="register-form auth-form">
+        <div class="input-wrapper">
+          <input type="email" name="email" id="register-email" placeholder="." class="auth-input">
+          <label for="register-email" class="auth-input-label">Email</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="password" name="register-password" id="register-password" placeholder="." class="auth-input">
+          <label for="register-password" class="auth-input-label">Password</label>
+        </div>
+        <button type="submit" class="register-button auth-button">Sign Up</button>
+      </form>
+      <p class="auth-switch-form-text">Already registered?</p>
+      <button type="button" class="auth-switch-form-button show-login">Sign In</button>
+    </div>
+
+  </div>
+</div>
