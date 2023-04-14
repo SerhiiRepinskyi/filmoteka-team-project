@@ -1,0 +1,10 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-header-home-logo" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.1695" d="M26.427 2.667h-20.853c-1.605 0-2.907 1.301-2.907 2.907v20.853c0 1.605 1.302 2.907 2.907 2.907h20.853c1.605 0 2.907-1.302 2.907-2.907v-20.853c0-1.605-1.302-2.907-2.907-2.907zM9.333 2.667v26.666M22.667 2.667v26.666M2.667 16h26.666M2.667 9.334h6.666M2.667 22.666h6.666M22.667 22.666h6.666M22.667 9.334h6.666"></path>
+</symbol>
+<symbol id="icon-header-home-search" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M14.667 25.333c0.046 0.001 0.101 0.001 0.156 0.001 5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-0.055 0-0.11 0-0.164 0.001l0.008-0c-5.824 0.088-10.511 4.83-10.511 10.666s4.687 10.578 10.503 10.666l0.008 0zM28 28l-5.803-5.801"></path>
+</symbol>
+</defs>
+</svg>

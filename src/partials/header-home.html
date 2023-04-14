@@ -1,20 +1,20 @@
 <header class="header-home" id="header-home">
-    <div class="container">
-      <div class="header-home__wrapper">
+  <div class="container">
+    <div class="header-home__wrapper">
         <nav class="home-nav">
           <ul class="home-nav__list">
             <li class="home-nav__item">
-              <button
+              <a
                 class="home-nav__btn btn--current btn--nome"
-                type="button"
+                href="#"
               >
                 Home
-              </button>
+            </a>
             </li>
             <li class="home-nav__item">
-              <button class="home-nav__btn btn--library" type="button">
+              <a class="home-nav__btn btn--library" href="./library.html">
                 My Library
-              </button>
+              </a>
             </li>
           </ul>
         </nav>
@@ -34,19 +34,20 @@
               </svg>
             </button>
           </div>
+          <div class="header-home-warning"></div>
         </form>
-        <div class="header-home-warning"></div>
-        <div class="header-logo">
-          <a href="./index.html" class="header-logo__link">
-            <svg class="header-logo__film" width="32" height="32">
-              <use
-                class="header-logo__icon"
-                href="./img/symbol-defs.svg#icon-header-home-logo"
-              ></use>
-            </svg>
-            <span class="header-logo__name">Filmoteka</span>
-          </a>
-        </div>
+      </div>
+      <div class="header-logo">
+        <a href="./index.html" class="header-logo__link">
+          <svg class="header-logo__film" width="32" height="32">
+            <use
+              class="header-logo__icon"
+              href="./img/symbol-defs.svg#icon-header-home-logo"
+            ></use>
+          </svg>
+          <span class="header-logo__name">Filmoteka</span>
+        </a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
