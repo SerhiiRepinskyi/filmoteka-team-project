@@ -1,5 +1,4 @@
 export class FilmAPI {
-
   #API_KEY = 'f6b5dfee4ed71b77313e17116e40108d';
   #BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -28,9 +27,9 @@ export class FilmAPI {
     return movie;
   }
 
-  async fetchDetails() {
+  async fetchDetails(detailsID) {
     const responce = await fetch(
-      `${this.#BASE_URL}/movie/${this.detailsID}?api_key=${
+      `${this.#BASE_URL}/movie/${detailsID}?api_key=${
         this.#API_KEY
       }&language=en-US`
     );
@@ -51,4 +50,3 @@ export class FilmAPI {
 
 // const test = new FilmAPI();
 // test.fetchYouTube().then(res => console.log(res));
-
