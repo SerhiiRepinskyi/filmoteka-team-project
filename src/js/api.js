@@ -1,4 +1,5 @@
 export class FilmAPI {
+
   #API_KEY = 'f6b5dfee4ed71b77313e17116e40108d';
   #BASE_URL = 'https://api.themoviedb.org/3';
 

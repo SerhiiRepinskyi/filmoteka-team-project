@@ -1,0 +1,39 @@
+.btn {
+  display: block;
+  background-color: #ffffff;
+  color: #000000;
+  border-color: transparent;
+  border-radius: 100px;
+  padding: 10px 22px 10px 22px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  @media screen and (min-width: 768px) {
+    padding: 12px 24px 12px 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 14px 24px 14px 24px;
+  }
+}
+.btn--bigger {
+  padding: 10px 26px 10px 26px;
+  @media screen and (min-width: 768px) {
+    padding: 12px 24px 12px 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 14px 32px 14px 32px;
+  }
+}
+.btn--current {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.lib {
+  color: #b92f2c;
+}
+.lib--active {
+  background-color: #b92f2c;
+  color: #ffffff;
+}
+

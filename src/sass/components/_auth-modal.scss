@@ -1,0 +1,232 @@
+.auth-modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  height: 42px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #b92f2c;
+  background-color: #ffffff;
+  border: transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 200ms ease, background-color 200ms ease;
+  z-index: 999;
+
+  &:hover,
+  &:focus-visible {
+    color: #ffffff;
+    background-color: #b92f2c;
+  }
+}
+
+.auth-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00000033;
+  transition: opacity 250ms ease, visibility 250ms ease;
+  z-index: 999;
+}
+
+.auth-modal-is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.auth-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40vh);
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: transform 250ms ease;
+
+  @media screen and (min-width: 320px) {
+    padding: 50px;
+    width: 320px;
+    height: 360px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    transform: translate(-50%, -50%);
+  }
+
+  .backdrop.auth-modal-is-hidden & {
+    transform: translate(-50%, -50%) scale(1.2) translateY(100%);
+  }
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 8px;
+  height: 30px;
+  width: 30px;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.auth-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-input {
+  padding: 15px;
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  line-height: 16px;
+  border: transparent;
+  border-bottom: 1px solid black;
+  outline: transparent;
+  transition: border-color 200ms ease;
+
+  &:focus {
+    border-color: #b92f2c;
+  }
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.auth-input-label {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  font-size: 14px;
+  line-height: 16px;
+  transition: top 200ms ease;
+
+  .auth-input:focus + &,
+  .auth-input:not(:placeholder-shown) + & {
+    top: -14px;
+  }
+  .auth-input:focus + & {
+    color: #b92f2c;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.auth-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  align-self: center;
+  height: 42px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #b92f2c;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #ffffff;
+    background-color: #b92f2c;
+    border: transparent;
+  }
+}
+
+.auth-switch-form-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: #545454;
+}
+
+.auth-switch-form-button {
+  font-size: 12px;
+  line-height: 14px;
+  text-decoration: underline;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 200ms ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #b92f2c;
+  }
+}
+
+.login-form-box {
+  top: 0;
+  opacity: 1;
+  transition: all 350ms ease;
+}
+
+.login-hidden {
+  top: -325px;
+  opacity: 0;
+}
+
+.register-form-box {
+  top: -325px;
+  opacity: 1;
+  transition: all 350ms ease;
+}
+
+.register-hidden {
+  top: 0;
+  opacity: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
