@@ -1,65 +1,54 @@
 export class FilmAPI {
-  #API_KEY = "f6b5dfee4ed71b77313e17116e40108d";
-  #BASE_URL = "https://api.themoviedb.org/3";
+
+  #API_KEY = 'f6b5dfee4ed71b77313e17116e40108d';
+  #BASE_URL = 'https://api.themoviedb.org/3';
 
   query = null;
   page = 1;
-  detailsID = 2;
+  detailsID = 3;
   youTubeID = 3;
 
-  fetchTrending() {
-    return fetch(
+  async fetchTrending() {
+    const responce = await fetch(
       `${this.#BASE_URL}/trending/movie/week?api_key=${this.#API_KEY}`
-    ).then((res) => {
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-      return res.json();
-    });
+    );
+    const trending = await responce.json();
+    return trending;
   }
 
-  fetchMovies() {
-    return fetch(
+  async fetchSearhMovies() {
+    const responce = await fetch(
       `${this.#BASE_URL}/search/movie?api_key=${
         this.#API_KEY
       }&language=en-US&page=1&include_adult=false&query=${this.query}&page=${
         this.page
       }`
-    ).then((res) => {
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-      return res.json();
-    });
+    );
+    const movie = await responce.json();
+    return movie;
   }
 
-  fetchDetails() {
-    return fetch(
+  async fetchDetails() {
+    const responce = await fetch(
       `${this.#BASE_URL}/movie/${this.detailsID}?api_key=${
         this.#API_KEY
       }&language=en-US`
-    ).then((res) => {
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-      return res.json();
-    });
+    );
+    const details = await responce.json();
+    return details;
   }
 
-  fetchYouTube() {
-    return fetch(
+  async fetchYouTube() {
+    const responce = await fetch(
       `${this.#BASE_URL}/movie/${this.youTubeID}/videos?api_key=${
         this.#API_KEY
       }&language=en-US`
-    ).then((res) => {
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-      return res.json();
-    });
+    );
+    const youTubeTrailer = await responce.json();
+    return youTubeTrailer;
   }
 }
 
+// const test = new FilmAPI();
+// test.fetchYouTube().then(res => console.log(res));
 
-// const test = new filmAPI();
-// test.fetchTrending().then((res) => console.log(res));
