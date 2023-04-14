@@ -1,11 +1,14 @@
+import { firebaseApp } from './firebaseInit';
 import {
+  getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { firebaseApp, database, auth } from './firebaseInit';
 import { refs } from './signInModalRefs';
+
+const auth = getAuth(firebaseApp);
 
 const createAccount = async e => {
   e.preventDefault();
