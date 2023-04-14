@@ -3,6 +3,9 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 export async function filmCardMarkup(fetchedData) {
   const posterPath = 'https://image.tmdb.org/t/p/w500';
+  Loading.pulse({
+    svgColor: '#b92f2c',
+  });
   const markup = await fetchedData
     .map(({ id, title, poster_path, release_date, genre_ids }) => {
       let movieTitle = title;
@@ -22,6 +25,6 @@ export async function filmCardMarkup(fetchedData) {
       </li>`;
     })
     .join('');
-    Loading.remove();
+  Loading.remove();
   return markup;
 }
