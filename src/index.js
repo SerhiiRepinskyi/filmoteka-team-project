@@ -9,3 +9,4 @@ import './js/genres_data';
 import './js/firebase/firebaseAuth';
 import './js/firebase/signInModal';
 import './js/search_film'
+import './js/themse_picker'

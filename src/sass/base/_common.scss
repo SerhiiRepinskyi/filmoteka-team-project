@@ -2,6 +2,17 @@
 
 body {
   color: var(--primary-text-color);
-  background-color: var(--primary-white-color);
+  background-color: var(--primary-background-color);
   font-family: 'Roboto', sans-serif;
+  block-size: 100%;
+  color-scheme: light;
+  transition: var(--tra);
+
+  &[data-theme="dark"] {
+    color-scheme: dark;
+
+    @supports not (color-scheme: dark) {
+      background-color: #131313; 
+    }
+  }
 }
