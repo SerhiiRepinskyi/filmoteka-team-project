@@ -1,7 +1,9 @@
 const buttonWatchedEl = document.querySelector('.btn_lib').firstElementChild;
-console.log(buttonWatchedEl);
+// console.log(buttonWatchedEl);
 const buttonQueueEl = document.querySelector('.btn_lib').lastElementChild;
-console.log(buttonQueueEl);
+// console.log(buttonQueueEl);
+
+
 
 function handleButtonClick(event) {
   const clickedButton = event.target;
@@ -20,3 +22,8 @@ function handleButtonClick(event) {
 
 buttonWatchedEl.addEventListener('click', handleButtonClick);
 buttonQueueEl.addEventListener('click', handleButtonClick);
+
+
+
+
+
