@@ -1,4 +1,4 @@
-import { firebaseApp } from './firebaseInit';
+import { firebaseApp } from './firebase-init';
 import {
   getAuth,
   onAuthStateChanged,
@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { refs } from './signInModalRefs';
+import { refs } from './auth-modal-refs';
 
 const auth = getAuth(firebaseApp);
 
