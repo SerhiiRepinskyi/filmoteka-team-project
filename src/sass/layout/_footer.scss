@@ -12,10 +12,10 @@
   }
 
   &__icon {
-    display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: -2px;
+    fill: #b92f2c;
 
     animation-name: footerHeartBeat;
     animation-duration: 777ms;
@@ -30,11 +30,13 @@
     text-underline-offset: 2px;
 
     color: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     display: inline-block;
+    padding: 0px;
 
-    transition-property: all;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--tra);
 
     &:hover,
     &:focus {
@@ -68,6 +70,7 @@
 @keyframes footerHeartBeat {
   0% {
     transform: scale(1);
+    fill: rgb(255, 100, 0);
   }
 
   100% {
