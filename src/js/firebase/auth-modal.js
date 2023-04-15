@@ -1,4 +1,4 @@
-import { refs } from './signInModalRefs';
+import { refs } from './auth-modal-refs';
 
 const switchFormsOnClick = () => {
   refs.loginForm.classList.toggle('login-hidden');

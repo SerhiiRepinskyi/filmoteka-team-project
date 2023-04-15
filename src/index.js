@@ -7,6 +7,6 @@ import './js/genre_info';
 import './js/genres_data';
 import './js/modal_contributor';
 // ...
-import './js/firebase/firebaseAuth';
-import './js/firebase/signInModal';
+import './js/firebase/firebase-auth';
+import './js/firebase/auth-modal';
 import './js/search_film';
