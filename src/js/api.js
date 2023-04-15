@@ -4,7 +4,7 @@ export class FilmAPI {
 
   query = null;
   page = 1;
-  detailsID = 3;
+  // detailsID = 3;
   youTubeID = 3;
 
   async fetchTrending() {
@@ -36,6 +36,16 @@ export class FilmAPI {
     const details = await responce.json();
     return details;
   }
+
+  // async fetchDetails() {
+  //   const responce = await fetch(
+  //     `${this.#BASE_URL}/movie/${this.detailsID}?api_key=${
+  //       this.#API_KEY
+  //     }&language=en-US`
+  //   );
+  //   const details = await responce.json();
+  //   return details;
+  // }
 
   async fetchYouTube() {
     const responce = await fetch(

@@ -1,0 +1,159 @@
+.modal-contributors-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(42, 42, 42, 0.5);
+  z-index: 997;
+  transition: var(--tra);
+}
+
+.modal-contributors-backdrop--is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-contributors-backdrop--is-hidden .modal-contributors {
+  transform: translate(-50%, -50%) scale(0);
+  visibility: hidden;
+}
+
+.modal-contributors {
+  position: relative;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  font-family: Montserrat, sans-serif;
+  width: 280px;
+  border-radius: 10px;
+  padding: 20px 14px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-style: outset;
+  border-width: 1px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+  transition: var(--tra);
+
+  &__close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    fill: currentColor;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    transition: var(--tra);
+
+    &:hover,
+    &:focus {
+      transform: scale(1.3);
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 1.14;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 120px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    text-align: center;
+    color: #545454;
+  }
+
+  &__link {
+    color: inherit;
+
+    &:hover .modal-contributors__git-icon,
+    &:focus .modal-contributors__git-icon {
+      color: rgb(255, 100, 0);
+      transform: scale(1.1);
+    }
+  }
+
+  &__wrap {
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 3px;
+  }
+
+  &__name {
+    font-size: 11px;
+  }
+
+  &__position {
+    font-size: 9px;
+  }
+
+  &__git-icon {
+    color: #000000;
+    fill: currentColor;
+    width: 12px;
+    height: 12px;
+    margin-bottom: 2px;
+    transition: var(--tra);
+  }
+}
+
+.body-no-scroll {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-contributors {
+    width: 704px;
+
+    &__item {
+      width: 160px;
+    }
+
+    &__wrap {
+      margin-bottom: 6px;
+    }
+
+    &__name {
+      font-size: 15px;
+    }
+
+    &__position {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    &__git-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

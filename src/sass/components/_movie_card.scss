@@ -1,6 +1,6 @@
 .cards__list {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   row-gap: 32px;
   margin: 0 auto;
   flex-direction: column;
@@ -15,11 +15,36 @@
 }
 
 .card-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+  transition: var(--tra);
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  width: 280px;
+  height: 445px;
+  transition: var(--tra);
+
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 495px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 390px;
+    height: 635px;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 1px 1px 10px 0px var(--secondary-color);
+    transform: scale(1.03);
+  }
 }
 
 .movie__poster {
   border-radius: 5px;
-  width: 100%;
+  width: 280px;
+  height: 400px;
+  object-fit: cover;
 
   @media screen and (min-width: 480px) {
     width: 280px;
@@ -28,6 +53,8 @@
 
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
+    width: 320px;
+    height: 445px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -41,29 +68,36 @@
   display: flex;
   border-radius: 5px;
   width: 280px;
+  height: 400px;
   background-size: cover;
   margin: 0 auto;
+  margin-bottom: 8px;
   @media screen and (min-width: 480px) {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 445px;
     margin-bottom: 8px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 390px;
     height: 575px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 }
-
+.card-item__info-wrapper {
+  padding-left: 5px;
+}
 .card-item__title {
   font-size: 12px;
   line-height: 1.33;
   font-weight: 500;
   text-transform: uppercase;
   color: var(--primary-text-color);
+  word-wrap: break-word;
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
@@ -71,7 +105,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
   }
 }
@@ -94,7 +128,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
   }
 }
@@ -111,7 +145,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
   }
 }
