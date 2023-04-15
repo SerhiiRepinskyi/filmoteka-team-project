@@ -22,6 +22,6 @@ export async function filmCardMarkup(fetchedData) {
       </li>`;
     })
     .join('');
-    Loading.remove();
+  Loading.remove();
   return markup;
 }

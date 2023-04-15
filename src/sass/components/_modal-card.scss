@@ -4,9 +4,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  //   background-color: ;
+  background-color: rgba(0, 0, 0, 0.2);
 
-  z-index: 999;
+  z-index: 2;
 
   //   transition-property: all;
   //   transition-duration: var(--animation-time);
@@ -25,7 +25,7 @@
 
   width: calc(100vw - 40px);
   min-width: 280px;
-  //   background-color: var(--col-bg-light);
+  background-color: white;
 
   border-radius: 10px;
   padding: 40px 20px;
@@ -57,7 +57,6 @@
     justify-content: center;
 
     color: #131313;
-    fill: currentColor;
 
     // transition-property: all;
     // transition-duration: var(--animation-time);
@@ -170,4 +169,7 @@
     padding: 10px 12px;
     gap: 10px;
   }
+}
+.modal__check {
+  fill: black;
 }

@@ -6,5 +6,8 @@
 <symbol id="icon-header-home-search" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M14.667 25.333c0.046 0.001 0.101 0.001 0.156 0.001 5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-0.055 0-0.11 0-0.164 0.001l0.008-0c-5.824 0.088-10.511 4.83-10.511 10.666s4.687 10.578 10.503 10.666l0.008 0zM28 28l-5.803-5.801"></path>
 </symbol>
+<symbol id="icon-close" viewBox="0 0 32 32" >
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933M8.533 23.467l14.933-14.933"></path>
+</symbol>
 </defs>
 </svg>
