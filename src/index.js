@@ -9,4 +9,5 @@ import './js/modal_contributor';
 // ...
 import './js/firebase/firebaseAuth';
 import './js/firebase/signInModal';
-import './js/search_film'
+import './js/search_film';
+import './js/library_button';
