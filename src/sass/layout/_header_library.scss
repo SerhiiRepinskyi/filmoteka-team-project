@@ -14,14 +14,11 @@
   background-size: cover;
   orientation: portrait;
 
-  //   transform: matrix(-1, 0, 0, 1, 0, 0);
   @media screen and (min-width: 768px) {
     padding: 16px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-
-
   }
 
   @media screen and (min-width: 1280px) {
@@ -73,17 +70,19 @@
 .btn_group {
   display: flex;
   gap: 4px;
-}
 
-.btn_bottom {
-  display: flex;
-  justify-content: center;
-}
-@media screen and (min-width: 768px) {
-  .btn_group {
+  @media screen and (min-width: 768px) {
     align-items: start;
     margin-bottom: 105px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 151px;
+  }
+}
+
+.btn_lib {
+  display: flex;
+  justify-content: center;
 }
 
 .logo_lib {
@@ -97,14 +96,25 @@
   font-weight: 500;
   font-size: 32px;
   line-height: calc(38 / 32);
+  transition: all 0.3s ease-in-out;
+
   @media screen and (min-width: 768px) {
-    // display: flex;
     justify-content: start;
     padding: 0;
     font-weight: 500;
     font-size: 40px;
     line-height: calc(47 / 40);
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 64px;
+    line-height: calc(75 / 64);
+  }
+}
+
+.logo_lib:hover {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 0 0 0 #b92f2c,
+    1px 1px 5px #b92f2c;
 }
 
 .logo_lib::before {
@@ -119,5 +129,22 @@
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 59px;
+    height: 59px;
+  }
+}
+.logo_lib:hover::before {
+  opacity: 0.8;
+  animation: logo-rotate 2s linear infinite;
+}
+
+@keyframes logo-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

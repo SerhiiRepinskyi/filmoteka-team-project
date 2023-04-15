@@ -8,4 +8,5 @@ import './js/genres_data';
 // ...
 import './js/firebase/firebaseAuth';
 import './js/firebase/signInModal';
-import './js/search_film'
+import './js/search_film';
+import './js/library_button';
