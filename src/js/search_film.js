@@ -8,7 +8,7 @@ import { createPagination } from './pagination';
 Loading.pulse({
   svgColor: '#b92f2c',
 });
-
+Loading.remove(1000);
 export const filmSerchsAPI = new FilmAPI();
 
 const galleryEl = document.querySelector('.cards__list');
