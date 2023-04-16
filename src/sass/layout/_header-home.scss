@@ -1,5 +1,5 @@
 .header-home {
-  max-width: 1280px;
+  max-width: 280px;
   padding-top: 14px;
   padding-bottom: 23px;
   margin-right: auto;
@@ -27,6 +27,7 @@
   }
 
   @media screen and (min-width: 768px) {
+    max-width: 704px;
     padding-top: 8px;
     padding-bottom: 20px;
     background-image: linear-gradient(
@@ -49,6 +50,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1216px;
     padding-bottom: 40px;
     background-image: linear-gradient(
         180deg,
@@ -89,19 +91,20 @@
 .home-nav__list {
   display: flex;
   gap: 4px;
+  align-items: center;
 }
 
 .home-nav__item:last-child {
   margin-left: auto;
 }
 
-.home-nav__btn {
+.home-nav__btn,
+.auth-btn {
   display: block;
   background-color: #ffffff;
   color: #000000;
   border-color: transparent;
   text-transform: uppercase;
-  border-radius: 100px;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -111,16 +114,18 @@
   cursor: pointer;
 }
 
-.home-nav__btn:hover {
+.home-nav__btn:hover,
+.auth-btn:hover {
   transform: scale(1.05);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-.btn--nome {
+.home-nav__btn--home {
   padding: 10px 26px;
+  border-radius: 100px;
 
   @media screen and (min-width: 768px) {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -128,8 +133,9 @@
   }
 }
 
-.btn--library {
+.home-nav__btn--library {
   padding: 10px 22px;
+  border-radius: 100px;
 
   @media screen and (min-width: 768px) {
     padding: 12px 20px;
@@ -137,6 +143,22 @@
 
   @media screen and (min-width: 1280px) {
     padding: 14px 24px;
+  }
+}
+
+.auth-btn--modal {
+  display: flex;
+  align-items: center;
+  padding: 7px 7px;
+  border-radius: 14px;
+
+  @media screen and (min-width: 768px) {
+    padding: 9px 20px;
+    border-radius: 22px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 12px 24px;
   }
 }
 
