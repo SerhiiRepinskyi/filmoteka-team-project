@@ -1,8 +1,8 @@
 .header_container {
+  max-width: 280px;
   border-radius: 10px;
-  padding-top: 14px;
-  padding-bottom: 24px;
-  max-width: 1280px;
+ 
+  padding: 14px 14px 24px 14px;
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,
@@ -15,6 +15,7 @@
   orientation: portrait;
 
   @media screen and (min-width: 768px) {
+    max-width: 704px;
     padding: 16px;
     display: flex;
     justify-content: space-between;
@@ -22,6 +23,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1216px;
     padding: 16px 32px 32px 32px;
   }
 }
@@ -70,6 +72,8 @@
 .btn_group {
   display: flex;
   gap: 4px;
+  justify-content: start;
+  
 
   @media screen and (min-width: 768px) {
     align-items: start;
