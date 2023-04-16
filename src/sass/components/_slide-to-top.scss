@@ -1,0 +1,53 @@
+@keyframes slide-top {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes scaler {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2vh;
+  right: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 50%;
+  animation: slide-top 750ms linear, scaler 1500ms infinite alternate both;
+  z-index: 10;
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    bottom: 5vh;
+  }
+}
+.arrow-top {
+  fill: var(--primary-white-color);
+  transform: scale(0.7);
+  @media screen and (min-width: 768px) {
+    transform: scale(0.85);
+  }
+  @media screen and (min-width: 1280px) {
+
+  }
+}
