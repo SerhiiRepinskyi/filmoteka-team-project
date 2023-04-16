@@ -3,12 +3,13 @@ import { filmCardMarkup } from './card_markup';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import fetchPopularMovies from './render_trends';
 import Notiflix from 'notiflix';
+import { createPagination } from './pagination';
 
 Loading.pulse({
   svgColor: '#b92f2c',
 });
 
-const filmTrendsAPI = new FilmAPI();
+export const filmSerchsAPI = new FilmAPI();
 
 const galleryEl = document.querySelector('.cards__list');
 const form = document.querySelector('.header-form');
@@ -40,19 +41,34 @@ async function serch(e) {
     return info();
   }
 
-  filmTrendsAPI.query = input.value;
-
-  const fetchedData = await filmTrendsAPI.fetchSearhMovies()
-    .then(res => res.results)
-
-    if (fetchedData.length === 0) {
-        showsNotification();
-        hidesNotification();
-        return warning();
-      }
-  // console.log('FETCH', fetchedData);
-  galleryEl.innerHTML = await filmCardMarkup(fetchedData);
+  filmSerchsAPI.query = input.value;
+  filmSerchsAPI.page = 1;
+  renderSerchMovies(1);
 }
+
+export default async function renderSerchMovies(option1) {
+  try {
+    const { results, total_results } = await filmSerchsAPI.fetchSearhMovies();
+
+    createPagination(option1, 2, total_results);
+
+    console.log('FETCH', results);
+
+    galleryEl.innerHTML = '';
+    galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
+  } catch (error) {
+    showsNotification();
+    hidesNotification();
+    return warning();
+  }
+}
+
+
+//   if (fetchedData.length === 0) {
+//       showsNotification();
+//       hidesNotification();
+//       return warning();
+//     }
 
 
 function info() {
@@ -60,9 +76,7 @@ function info() {
 }
 
 function warning() {
-  Notiflix.Notify.failure(
-    "The film with such a title does not exist."
-  );
+  Notiflix.Notify.failure('The film with such a title does not exist.');
 }
 
 function showsNotification() {
@@ -77,5 +91,3 @@ function hidesNotification() {
     message.style.display = 'none';
   }, 4000);
 }
-
-

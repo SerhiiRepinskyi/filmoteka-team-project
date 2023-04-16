@@ -9,7 +9,7 @@ export class FilmAPI {
 
   async fetchTrending() {
     const responce = await fetch(
-      `${this.#BASE_URL}/trending/movie/week?api_key=${this.#API_KEY}`
+      `${this.#BASE_URL}/trending/movie/week?api_key=${this.#API_KEY}&page=${this.page}`
     );
     const trending = await responce.json();
     return trending;
