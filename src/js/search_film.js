@@ -15,11 +15,14 @@ const galleryEl = document.querySelector('.cards__list');
 const form = document.querySelector('.header-form');
 const input = document.querySelector('.header-form__input');
 const message = document.querySelector('.header-home-warning');
-message.style.display = 'none';
-// console.log(form);
 
-form.addEventListener('submit', serch);
-input.addEventListener('input', inputValue);
+if (form === null) {
+  return;
+} else {
+  message.style.display = 'none';
+  form.addEventListener('submit', serch);
+  input.addEventListener('input', inputValue);
+}
 
 function inputValue(e) {
   // console.log(e.data);
@@ -63,13 +66,11 @@ export default async function renderSerchMovies(option1) {
   }
 }
 
-
 //   if (fetchedData.length === 0) {
 //       showsNotification();
 //       hidesNotification();
 //       return warning();
 //     }
-
 
 function info() {
   Notiflix.Notify.info('Enter your data to search.');
