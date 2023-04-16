@@ -1,6 +1,4 @@
 import { FilmAPI } from './api';
-import { filmCardMarkup } from './card_markup';
-import getGenre from './genre_info';
 const modalCardEl = document.querySelector('.modal-card');
 
 const modalCardAPI = new FilmAPI();

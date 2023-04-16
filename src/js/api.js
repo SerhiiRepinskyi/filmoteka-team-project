@@ -4,7 +4,7 @@ export class FilmAPI {
 
   query = null;
   page = 1;
-  detailsID = 600;
+  detailsID = 3;
   youTubeID = 3;
 
   fetchTrending() {
