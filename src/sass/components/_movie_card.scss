@@ -2,11 +2,12 @@
   display: flex;
   justify-content: left;
   row-gap: 32px;
-  margin: 0 auto;
+  margin: 0 ;
   flex-direction: column;
+  flex: auto;
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
-    column-gap: 16px;
+    gap: 16px;
     flex-direction: row;
   }
 
@@ -30,7 +31,7 @@
     height: 495px;
   }
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 394px;
     height: 635px;
   }
   &:hover,
@@ -58,7 +59,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 395px;
     height: 575px;
     margin-bottom: 12px;
   }
@@ -83,7 +84,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 395px;
     height: 575px;
     margin-bottom: 8px;
   }
