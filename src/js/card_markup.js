@@ -6,15 +6,24 @@ export async function filmCardMarkup(fetchedData) {
   Loading.pulse({
     svgColor: '#b92f2c',
   });
+  Loading.remove(1000);
   const markup = await fetchedData
     .map(({ id, title, poster_path, release_date, genre_ids }) => {
+      let moviePoster = `${posterPath}${poster_path}`;
       let movieTitle = title;
+      if (release_date === "") {
+        release_date = '----'
+      }
+
       if (title.length > 34) {
         movieTitle = `${title.slice(0, 34)}...`;
       }
-      return `<li class='card-item' data-id='${id}'>
+      if (poster_path === null) {
+        moviePoster = 'https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png';
+      }
+            return `<li class='card-item' data-id='${id}'>
       <div class='image__wrapper'>
-        <img class='movie__poster'src='${posterPath}${poster_path}' alt='${title}' loading='lazy' />
+        <img class='movie__poster' src='${moviePoster}' width='395' alt='${title}' loading='lazy' />
       </div>
       <div class='card-item__info-wrapper'>
       <h2 class='card-item__title'>${movieTitle}</h2>
@@ -27,6 +36,6 @@ export async function filmCardMarkup(fetchedData) {
       </li>`;
     })
     .join('');
-  Loading.remove();
+  
   return markup;
 }

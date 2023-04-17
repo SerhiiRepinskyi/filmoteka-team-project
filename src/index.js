@@ -11,4 +11,6 @@ import './js/pagination';
 import './js/firebase/firebase-auth';
 import './js/firebase/auth-modal';
 import './js/search_film';
+
+import './js/render-watched';
 import './js/slider-to-top';
