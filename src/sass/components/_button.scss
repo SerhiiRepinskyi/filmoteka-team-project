@@ -46,12 +46,19 @@ a:active {
   }
   @media screen and (min-width: 1280px) {
     padding: 16px 32px ;
+    
   
   }
 }
 .btn--current {
   background-color: #000000;
   color: #ffffff;
+  @media screen and (min-width: 768px) {
+    padding: 12px 26px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 14px 24px;
+  }
 }
 
 .lib {
