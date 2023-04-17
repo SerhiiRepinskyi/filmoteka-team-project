@@ -49,7 +49,11 @@ async function serch(e) {
 export default async function renderSerchMovies(option1) {
   try {
     const { results, total_results } = await filmSerchsAPI.fetchSearhMovies();
-
+    if (results.length === 0) {
+      showsNotification();
+      hidesNotification();
+      return warning();
+    }
     createPagination(option1, 2, total_results);
 
     console.log('FETCH', results);
@@ -57,18 +61,9 @@ export default async function renderSerchMovies(option1) {
     galleryEl.innerHTML = '';
     galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
   } catch (error) {
-    showsNotification();
-    hidesNotification();
-    return warning();
+    console.log(error.message);
   }
 }
-
-
-//   if (fetchedData.length === 0) {
-//       showsNotification();
-//       hidesNotification();
-//       return warning();
-//     }
 
 
 function info() {
