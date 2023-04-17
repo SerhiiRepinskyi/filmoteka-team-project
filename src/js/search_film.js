@@ -49,11 +49,8 @@ async function serch(e) {
 export default async function renderSerchMovies(option1) {
   try {
     const { results, total_results } = await filmSerchsAPI.fetchSearhMovies();
-<<<<<<< Updated upstream
+
     if (results.length === 0) {
-=======
-    if (results === []) {
->>>>>>> Stashed changes
       showsNotification();
       hidesNotification();
       return warning();
@@ -70,12 +67,6 @@ export default async function renderSerchMovies(option1) {
 }
 
 
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
 function info() {
   Notiflix.Notify.info('Enter your data to search.');
 }
