@@ -1,16 +1,27 @@
+.gallery_wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
 .cards__list {
   display: flex;
-  justify-content: left;
-  row-gap: 32px;
+  justify-content: center;
+  row-gap: 20px;
   margin: 0 auto;
   flex-direction: column;
+  flex: auto;
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
-    column-gap: 16px;
+    justify-content: left;
+    row-gap: 32px;
+    column-gap: 32px;
     flex-direction: row;
   }
 
   @media screen and (min-width: 1280px) {
+    column-gap: 16px;
   }
 }
 
@@ -26,11 +37,11 @@
   transition: var(--tra);
 
   @media screen and (min-width: 768px) {
-    width: 320px;
+    width: 335px;
     height: 495px;
   }
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 394px;
     height: 635px;
   }
   &:hover,
@@ -45,7 +56,6 @@
   width: 280px;
   height: 400px;
   object-fit: cover;
-
   @media screen and (min-width: 480px) {
     width: 280px;
     margin-bottom: 10px;
@@ -53,12 +63,12 @@
 
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
-    width: 320px;
-    height: 445px;
+    width: 335px;
+    height: 455px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 395px;
     height: 575px;
     margin-bottom: 12px;
   }
@@ -77,13 +87,13 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 320px;
-    height: 445px;
+    width: 335px;
+    height: 455px;
     margin-bottom: 8px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 390px;
+    width: 395px;
     height: 575px;
     margin-bottom: 8px;
   }

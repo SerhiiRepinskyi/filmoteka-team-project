@@ -5,16 +5,25 @@
           <ul class="home-nav__list">
             <li class="home-nav__item">
               <a
-                class="home-nav__btn btn--current btn--nome"
-                href="#"
+                class="home-nav__btn home-nav__btn--home btn--active"
+                href="./index.html"
               >
                 Home
             </a>
             </li>
             <li class="home-nav__item">
-              <a class="home-nav__btn btn--library" href="./library.html">
+              <a class="home-nav__btn home-nav__btn--library" href="./library.html">
                 My Library
               </a>
+            </li>
+            <li class="home-nav__item">
+              <button type="button" class="auth-btn auth-btn--modal auth-modal-open">
+                <svg class="" width="16" height="16">
+                  <use
+                    href="./img/symbol-defs.svg#icon-login-svgrepo-com"
+                  ></use>
+                </svg>
+              </button>
             </li>
           </ul>
         </nav>
@@ -34,7 +43,7 @@
               </svg>
             </button>
           </div>
-          <div class="header-home-warning"></div>
+          <div class="header-home-warning">Search result not successful. Enter the correct movie name.</div>
         </form>
       </div>
       <div class="header-logo">
@@ -49,5 +58,6 @@
         </a>
       </div>
     </div>
+  </div>
   </div>
 </header>

@@ -5,3 +5,7 @@ body {
   background-color: var(--primary-white-color);
   font-family: 'Roboto', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
