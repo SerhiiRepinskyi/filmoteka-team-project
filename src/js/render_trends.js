@@ -1,6 +1,5 @@
 import { FilmAPI } from './api';
 import { filmCardMarkup } from './card_markup';
-// import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { createPagination } from './pagination';
 
 const galleryEl = document.querySelector('.cards__list');

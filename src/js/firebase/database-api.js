@@ -21,11 +21,17 @@ export class DatabaseAPI {
         let userId = user.uid;
         const reference = ref(
           this.#DATABASE,
-          `users_library/${userId}/watched/`
+          `users_library/${userId}/watched/${movieObj.id}`
         );
-
-        push(reference, movieObj);
-        console.log('Movie added to watched');
+        get(reference).then(snapshot => {
+          if (snapshot.exists()) {
+            console.log(`'${movieObj.title}' is already in the Watched List`);
+            return;
+          } else {
+            set(reference, movieObj);
+            console.log(`'${movieObj.title}' added to Watched List`);
+          }
+        });
       }
     });
   }
@@ -34,59 +40,61 @@ export class DatabaseAPI {
     onAuthStateChanged(this.#AUTH, user => {
       if (user) {
         let userId = user.uid;
-        const reference = ref(this.#DATABASE, `users_library/${userId}/queue/`);
-
-        push(reference, movieObj);
-        console.log('Movie added to queue');
-      }
-    });
-  }
-
-  getWatchedList() {
-    onAuthStateChanged(this.#AUTH, user => {
-      if (user) {
-        let userId = user.uid;
-
         const reference = ref(
           this.#DATABASE,
-          `users_library/${userId}/watched/`
+          `users_library/${userId}/queue/${movieObj.id}`
         );
 
-        onValue(reference, snapshot => {
-          if (snapshot.val() === undefined || snapshot.val() === null) {
+        get(reference).then(snapshot => {
+          if (snapshot.exists()) {
+            console.log(`'${movieObj.title}' is already in the Queue List`);
             return;
+          } else {
+            set(reference, movieObj);
+            console.log(`'${movieObj.title}' added to Queue List`);
           }
-          console.log(Object.values(snapshot.val()));
-          return Object.values(snapshot.val());
         });
       }
     });
   }
 
-  getQueueList() {
-    onAuthStateChanged(this.#AUTH, user => {
-      if (user) {
-        let userId = user.uid;
+  async getWatchedList() {
+    const user = await new Promise(resolve =>
+      onAuthStateChanged(this.#AUTH, resolve)
+    );
+    if (!user) return;
 
-        const reference = ref(this.#DATABASE, `users_library/${userId}/queue/`);
+    const userId = user.uid;
+    const reference = ref(this.#DATABASE, `users_library/${userId}/watched/`);
 
-        onValue(reference, snapshot => {
-          if (snapshot.val() === undefined || snapshot.val() === null) {
-            return;
-          }
-          console.log(Object.values(snapshot.val()));
-          return Object.values(snapshot.val());
-        });
-      }
-    });
+    const snapshot = await get(reference);
+    if (snapshot.exists) {
+      const moviesObject = snapshot.val();
+      const moviesArray = Object.keys(moviesObject).map(key => {
+        return moviesObject[key];
+      });
+      console.log(moviesArray);
+      return moviesArray;
+    }
   }
 
-  getListItem(list, movieId) {
-    for (const key in list) {
-      if (list[key].id === movieId) {
-        console.log(key);
-        return key;
-      }
+  async getQueueList() {
+    const user = await new Promise(resolve =>
+      onAuthStateChanged(this.#AUTH, resolve)
+    );
+    if (!user) return;
+
+    const userId = user.uid;
+    const reference = ref(this.#DATABASE, `users_library/${userId}/queue/`);
+
+    const snapshot = await get(reference);
+    if (snapshot.exists) {
+      const moviesObject = snapshot.val();
+      const moviesArray = Object.keys(moviesObject).map(key => {
+        return moviesObject[key];
+      });
+      console.log(moviesArray);
+      return moviesArray;
     }
   }
 
@@ -101,11 +109,9 @@ export class DatabaseAPI {
           return;
         }
 
-        const itemToRemove = this.getListItem(snapshot.val(), movieId);
-
         const refToRemove = ref(
           this.#DATABASE,
-          `users_library/${userId}/watched/${itemToRemove}`
+          `users_library/${userId}/watched/${movieId}`
         );
 
         remove(refToRemove);
@@ -125,11 +131,9 @@ export class DatabaseAPI {
           return;
         }
 
-        const itemToRemove = this.getListItem(snapshot.val(), movieId);
-
         const refToRemove = ref(
           this.#DATABASE,
-          `users_library/${userId}/queue/${itemToRemove}`
+          `users_library/${userId}/queue/${movieId}`
         );
 
         remove(refToRemove);
