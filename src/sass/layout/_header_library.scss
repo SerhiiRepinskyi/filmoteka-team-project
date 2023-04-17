@@ -164,26 +164,25 @@
 .auth_lib {
   background-color: #000000;
   padding: 0 11px;
-
-  height: 41px;
+  height: 40px;
   @media screen and (min-width: 768px) {
     height: 42px;
-    padding: 10px 12px;
   }
   @media screen and (min-width: 1280px) {
-    height: 46px;
-    padding: 12px 14px;
+    height: 45px;
   }
 }
 
 .auth_lib::after {
   content: ' ';
-  display: flex;
+  display: block;
 
   width: 15px;
-  height: 16px;
-  background-repeat: no-repeat;
+  height: 15px;
+
   background-image: url('../img/auth-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 
   @media screen and (min-width: 768px) {
@@ -191,10 +190,93 @@
     height: 18px;
   }
   @media screen and (min-width: 1280px) {
-    width: 18px;
-    height: 18px;
+    width: 21px;
+    height: 21px;
   }
 }
-.auth {
-  display: none;
+.auth_lib.auth {
+  background-color: #ffffff;
+}
+.auth.auth_lib::after {
+  content: ' ';
+  display:inline-block;
+
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../img/user-plus.svg');
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.header-home {
+  & .auth_lib {
+    background-color: #000000;
+    padding: 0 7px;
+    height: 34px;
+    @media screen and (min-width: 768px) {
+      height: 38px;
+      
+
+      padding: 0 9px;
+    }
+    @media screen and (min-width: 1280px) {
+      height: 42px;
+      // padding: 0 9px;
+    }
+  }
+
+  & .auth_lib::after {
+    content: ' ';
+    display: block;
+
+    width: 15px;
+    height: 15px;
+
+    background-image: url('../img/auth-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (min-width: 768px) {
+      width: 18px;
+      height: 18px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 21px;
+      height: 21px;
+    }
+  }
+  & .auth_lib.auth {
+    background-color: #ffffff;
+  }
+  & .auth.auth_lib::after {
+    content: ' ';
+    display: flex;
+
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/user-plus.svg');
+
+    @media screen and (min-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
