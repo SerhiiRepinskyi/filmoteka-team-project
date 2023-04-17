@@ -13,4 +13,5 @@ import './js/firebase/auth-modal';
 import './js/search_film';
 import './js/slider-to-top';
 
-import './js/library_button';
+// import './js/library_button';
+import './js/authlib_btn';
