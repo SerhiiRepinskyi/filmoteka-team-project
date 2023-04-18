@@ -1,4 +1,4 @@
-import { firebaseApp } from './firebase-init';
+import { firebaseApp, auth } from './firebase-init';
 import {
   getAuth,
   onAuthStateChanged,
@@ -8,8 +8,6 @@ import {
 } from 'firebase/auth';
 import { refs } from './auth-modal-refs';
 import { Notify } from 'notiflix';
-
-const auth = getAuth(firebaseApp);
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {

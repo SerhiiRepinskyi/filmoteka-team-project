@@ -1,6 +1,8 @@
 import { DatabaseAPI } from './firebase/database-api';
 import { FilmAPI } from './api';
-import { Notify } from 'notiflix';
+import { Notify, Block } from 'notiflix';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase/firebase-init';
 
 const filmAPI = new FilmAPI();
 const databaseAPI = new DatabaseAPI();
@@ -8,6 +10,30 @@ const databaseAPI = new DatabaseAPI();
 const galeryList = document.querySelector('.cards__list');
 const modalCard = document.querySelector('.modal-card');
 let movieId = '';
+
+const blockButtonsOnNoUser = async () => {
+  const watchedBtn = document.querySelector('[data-card-modal-watched-film]');
+  const queueBtn = document.querySelector('[data-card-modal-queue-film]');
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      watchedBtn.removeAttribute('disabled');
+      queueBtn.removeAttribute('disabled');
+    } else {
+      watchedBtn.setAttribute('disabled', '');
+      queueBtn.setAttribute('disabled', '');
+
+      Block.dots(
+        '.modal-card__btn-wrapper',
+        'Log in to add movies to library',
+        {
+          svgSize: '70px',
+          svgColor: '#66000000',
+          backgroundColor: 'rgba(255,255,255,0.5)',
+        }
+      );
+    }
+  });
+};
 
 const switchWatchedBtnToRemove = () => {
   const watchedBtn = document.querySelector('[data-card-modal-watched-film]');
@@ -41,7 +67,10 @@ const checkList = async e => {
   if (!e.target.closest('.card-item')) {
     return;
   }
+
   try {
+    setTimeout(blockButtonsOnNoUser, 200);
+
     movieId = Number(e.target.closest('.card-item').dataset.id);
     const presentInWatched = await databaseAPI.checkPresenseInWatched(movieId);
     if (presentInWatched) {
