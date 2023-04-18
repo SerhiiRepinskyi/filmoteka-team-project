@@ -2,7 +2,7 @@ import { FilmAPI } from './api';
 import fetchModalCard from './modal-card_render';
 
 const modalCardBackdrop = document.querySelector('.modal-card__backdrop');
-const galeryList = document.querySelector('.cards__list');
+const galeryList = document.querySelector('.library-cards__list');
 const body = document.querySelector('body');
 const modalCard = document.querySelector('.modal-card');
 
@@ -40,12 +40,3 @@ modalCardBackdrop.addEventListener('click', e => {
     body.classList.remove('no-scroll');
   }
 });
-
-export {
-  modalCardBackdrop,
-  btnCloseModalEl,
-  handleEscKeyDown,
-  body,
-  modalCard,
-  getMovieObjOnClick,
-};
