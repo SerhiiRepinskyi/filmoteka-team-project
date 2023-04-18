@@ -5,11 +5,11 @@ import { createPagination } from './pagination';
 const galleryEl = document.querySelector('.cards__list');
 export const filmTrendsAPI = new FilmAPI();
 
-export default async function fetchPopularMovies() {
+export default async function fetchPopularMovies(option1) {
   try {
     const { results, total_results } = await filmTrendsAPI.fetchTrending();
     filmTrendsAPI.page = 1;
-    createPagination(2, 1, total_results);
+    createPagination(option1, 1, total_results);
 
     console.log('FETCH', results);
 
