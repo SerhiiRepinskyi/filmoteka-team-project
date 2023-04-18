@@ -1,5 +1,5 @@
 .header-home {
-  max-width: 1280px;
+  max-width: 280px;
   padding-top: 14px;
   padding-bottom: 23px;
   margin-right: auto;
@@ -27,7 +27,8 @@
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 16px;
+    max-width: 704px;
+    padding-top: 8px;
     padding-bottom: 20px;
     background-image: linear-gradient(
         180deg,
@@ -49,6 +50,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1216px;
     padding-bottom: 40px;
     background-image: linear-gradient(
         180deg,
@@ -89,27 +91,41 @@
 .home-nav__list {
   display: flex;
   gap: 4px;
+  align-items: center;
 }
 
-.home-nav__btn {
+.home-nav__item:last-child {
+  margin-left: auto;
+}
+
+.home-nav__btn,
+.auth-btn {
   display: block;
   background-color: #ffffff;
   color: #000000;
   border-color: transparent;
   text-transform: uppercase;
-  border-radius: 100px;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(14 / 12);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   color: #000000;
   cursor: pointer;
 }
 
-.btn--nome {
+.home-nav__btn:hover,
+.auth-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.home-nav__btn--home {
   padding: 10px 26px;
+  border-radius: 100px;
 
   @media screen and (min-width: 768px) {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -117,8 +133,9 @@
   }
 }
 
-.btn--library {
+.home-nav__btn--library {
   padding: 10px 22px;
+  border-radius: 100px;
 
   @media screen and (min-width: 768px) {
     padding: 12px 20px;
@@ -129,18 +146,32 @@
   }
 }
 
-.btn--current {
+.auth-btn--modal {
+  display: flex;
+  align-items: center;
+  padding: 7px 7px;
+  border-radius: 14px;
+
+  @media screen and (min-width: 768px) {
+    padding: 9px 20px;
+    border-radius: 22px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 12px 24px;
+  }
+}
+
+.btn--active {
   background-color: #000000;
   color: #ffffff;
 }
 
 .header-form {
   position: relative;
-  margin-top: 8px;
   width: 252px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 0;
     width: 165px;
     margin-right: 4px;
   }
@@ -176,16 +207,21 @@
     position: absolute;
     display: flex;
     align-items: center;
-    top: 10px;
+    top: 8px;
     right: 12px;
     stroke: black;
     fill: none;
     background: 0 0;
     border: none;
     cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
+    @media screen and (min-width: 768px) {
+      top: 18px;
+    }
     @media screen and (min-width: 1280px) {
-      top: 12;
+      top: 20px;
     }
   }
 
@@ -200,9 +236,19 @@
   }
 }
 
+.header-form__search {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.header-form__btn:hover {
+  transform: scale(1.2);
+}
+
 .header-form__input:focus {
-  border: 2px solid #dc470b;
-  outline: #dc470b;
+  border: 2px solid black;
+  outline: black;
+  box-shadow: 0 3px 10px black;
 }
 
 .header-logo {
@@ -212,10 +258,16 @@
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
   }
+  &__link {
+    display: flex;
+    align-items: center;
+  }
 
   &__film {
     width: 32px;
     height: 32px;
+    animation: icon-logo 5s ease infinite;
+    stroke: #ffffff;
 
     @media screen and (min-width: 768px) {
       width: 40px;
@@ -228,11 +280,6 @@
     }
   }
 
-  &__link {
-    display: flex;
-    align-items: center;
-  }
-  
   &__name {
     display: inline-block;
     font-weight: 500;
@@ -251,10 +298,32 @@
   }
 }
 
+.header-logo__link:hover {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 0 0 black, 1px 1px 5px black;
+}
+
 .header-home-warning {
-  color: #ffffff;
+  position: absolute;
+  color: transparent;
   font-size: 10px;
   line-height: calc(12 / 10);
-  z-index: 100000;
   padding: 0 0 0 21px;
+}
+
+@keyframes icon-logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

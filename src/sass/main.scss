@@ -3,12 +3,15 @@
 @import './base/common';
 @import './base/reset';
 
-@import './components/modal_card.scss';
+@import './components/modal_card';
+@import './components/modal-contributors';
 @import './components/container';
 @import './components/button';
 @import './components/auth-modal';
 @import './components/movie_card';
 @import './components/theme_switcher';
+@import './components/pagination';
+@import './components/slide-to-top';
 
 @import './utils/vars';
 @import './utils/hidden';
@@ -16,3 +19,4 @@
 @import './layout/header-home';
 @import './layout/header_library';
 @import './layout/footer';
+@import './layout/plug';

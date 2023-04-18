@@ -1,32 +1,64 @@
 .btn {
-  display: block;
+  display: flex;
+  align-items: center;
   background-color: #ffffff;
   color: #000000;
   border-color: transparent;
   border-radius: 100px;
-  padding: 10px 22px 10px 22px;
+  padding: 10px 22px;
+  font-family: inherit;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(14 / 12);
+  text-transform: uppercase;
+
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
   @media screen and (min-width: 768px) {
-    padding: 12px 24px 12px 24px;
+    padding: 12px 24px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 14px 24px 14px 24px;
+    padding: 14px 24px;
   }
 }
+
+.btn:hover
+// ,.btn:focus 
+{
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+a:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .btn--bigger {
-  padding: 10px 26px 10px 26px;
+  padding: 13.5px 26px;
+
   @media screen and (min-width: 768px) {
-    padding: 12px 24px 12px 24px;
+    padding: 14px 26px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 14px 32px 14px 32px;
+    padding: 15.5px 32px ;
+    
+  
   }
 }
 .btn--current {
   background-color: #000000;
   color: #ffffff;
+  @media screen and (min-width: 768px) {
+    padding: 12px 26px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 14px 24px;
+  }
 }
 
 .lib {
@@ -36,4 +68,3 @@
   background-color: #b92f2c;
   color: #ffffff;
 }
-

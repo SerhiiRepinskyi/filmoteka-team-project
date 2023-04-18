@@ -1,31 +1,49 @@
 .header_container {
+  min-width: 280px;
+  max-width: 280px;
   border-radius: 10px;
-  padding-top: 14px;
-  padding-bottom: 24px;
-  max-width: 1280px;
-  background: linear-gradient(
+  padding: 14px 14px 24px 14px;
+  background: rgba($color: #ff980d, $alpha: 0.9);
+  background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.4) 65.37%
     ),
-    url(../img/orange_bcg_mobile.jpeg);
-  background-position: top right;
+    url('../img/orange_bcg_mobile.jpeg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  orientation: portrait;
 
-  //   transform: matrix(-1, 0, 0, 1, 0, 0);
   @media screen and (min-width: 768px) {
+    max-width: 704px;
     padding: 16px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 
-
+    mix-blend-mode: multiply;
+    background-image: url('../img/orange_bcg_desktop.jpeg'),
+      linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #ffa225 97.43%);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1216px;
     padding: 16px 32px 32px 32px;
+    mix-blend-mode: multiply;
+    background-image: linear-gradient(
+        267.62deg,
+        rgba(255, 156, 46, 0) 78.46%,
+        #ffa225 97.43%
+      ),
+      url('../img/orange_bcg_desktop.jpeg');
+
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -39,72 +57,77 @@
         rgba(0, 0, 0, 0) 0%,
         rgba(0, 0, 0, 0.4) 65.37%
       ),
-      url(../img/orange_bcg_mobile_2x.jpeg);
+      url('../img/orange_bcg_mobile_2x.jpeg');
+    @media screen and (min-width: 768px) {
+      background-image: linear-gradient(
+          267.62deg,
+          rgba(255, 156, 46, 0) 78.46%,
+          #ffa225 97.43%
+        ),
+        url('../img/orange_bcg_desktop_2x.jpeg');
+    }
+    @media screen and (min-width: 1280px) {
+      background-image: linear-gradient(
+          267.62deg,
+          rgba(255, 156, 46, 0) 78.46%,
+          #ffa225 97.43%
+        ),
+        url('../img/orange_bcg_desktop_2x.jpeg');
+    }
   }
 }
-
-@media screen and (min-width: 768px) {
-  .header_container {
-    background-position: top right;
-    background-image: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.4) 65.37%
-      ),
-      url(../img/orange_bcg_desktop.jpeg);
-  }
-}
-
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .header_container {
-    orientation: landscape;
-    background-image: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.4) 65.37%
-      ),
-      url(../img/orange_bcg_desktop_2x.jpeg);
-  }
-}
-
 .btn_group {
   display: flex;
   gap: 4px;
-}
+  justify-content: start;
 
-.btn_bottom {
-  display: flex;
-  justify-content: center;
-}
-@media screen and (min-width: 768px) {
-  .btn_group {
+  @media screen and (min-width: 768px) {
     align-items: start;
     margin-bottom: 105px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 151px;
+  }
 }
 
+.btn_lib {
+  display: flex;
+  justify-content: center;
+}
+.logo_position {
+  @media screen and (max-width: 767px) {
+    margin-top: 300px;
+  }
+}
 .logo_lib {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   text-align: center;
-  padding-top: 300px;
   padding-bottom: 16px;
   font-weight: 500;
   font-size: 32px;
   line-height: calc(38 / 32);
+  transition: all 0.3s ease-in-out;
+
   @media screen and (min-width: 768px) {
-    // display: flex;
     justify-content: start;
     padding: 0;
     font-weight: 500;
     font-size: 40px;
     line-height: calc(47 / 40);
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 64px;
+    line-height: calc(75 / 64);
+  }
+}
+
+.logo_lib:hover {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 0 0 0 #b92f2c,
+    1px 1px 5px #b92f2c;
 }
 
 .logo_lib::before {
@@ -119,5 +142,141 @@
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 59px;
+    height: 59px;
+  }
+}
+.logo_lib:hover::before {
+  opacity: 0.8;
+  animation: logo-rotate 2s linear infinite;
+}
+
+@keyframes logo-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.auth_lib {
+  background-color: #000000;
+  padding: 0 11px;
+  height: 40px;
+  @media screen and (min-width: 768px) {
+    height: 42px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 45px;
+  }
+}
+
+.auth_lib::after {
+  content: ' ';
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  background-image: url('../img/auth-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 21px;
+    height: 21px;
+  }
+}
+.auth_lib.auth {
+  background-color: #ffffff;
+}
+.auth.auth_lib::after {
+  content: ' ';
+  display:inline-block;
+
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../img/user-plus.svg');
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.header-home {
+  & .auth_lib {
+    background-color: #000000;
+    padding: 0 7px;
+    height: 34px;
+    @media screen and (min-width: 768px) {
+      height: 38px;
+      
+
+      padding: 0 9px;
+    }
+    @media screen and (min-width: 1280px) {
+      height: 42px;
+      // padding: 0 9px;
+    }
+  }
+
+  & .auth_lib::after {
+    content: ' ';
+    display: block;
+
+    width: 15px;
+    height: 15px;
+
+    background-image: url('../img/auth-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (min-width: 768px) {
+      width: 18px;
+      height: 18px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 21px;
+      height: 21px;
+    }
+  }
+  & .auth_lib.auth {
+    background-color: #ffffff;
+  }
+  & .auth.auth_lib::after {
+    content: ' ';
+    display: flex;
+
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/user-plus.svg');
+
+    @media screen and (min-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
