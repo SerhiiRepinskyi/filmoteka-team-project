@@ -8,12 +8,18 @@
 
   z-index: 999;
 
-  //   transition-property: all;
-  //   transition-duration: var(--animation-time);
-  //   transition-timing-function: var(--cubic-function);
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .modal-card {
+  @media screen and (min-width: 320px) {
+    width: 300px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
   max-height: calc(100vh - 40px);
   overflow: auto;
   -ms-overflow-style: none;
@@ -23,28 +29,31 @@
     height: 0;
   }
 
-  width: 500px;
+  width: calc(100vw - 40px);
   min-width: 280px;
+
   background-color: white;
 
   border-radius: 10px;
   padding: 40px 20px;
-  transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 500ms;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: visible;
 
-  //   transition-property: all;
-  //   transition-duration: var(--animation-time);
-  //   transition-timing-function: var(--cubic-function);
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  //   .modal-card__backdrop.is-hidden & {
-  //     transform: translate(-50%, -50%) scale(0);
-  //     visibility: hidden;
-  //   }
-
+  &__render {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      padding-left: 36px;
+      padding-right: 36px;
+      justify-content: center;
+    }
+  }
   &__close-btn {
     position: absolute;
     right: 8px;
@@ -73,25 +82,50 @@
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     &:hover {
-      fill: #b92f2c;
+      fill: orangered;
     }
   }
   &__img {
+    width: 100%;
+    height: auto;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      width: 320;
+    }
+    @media screen and (min-width: 768px) {
+      width: 265;
+      height: 365;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 375;
+      height: 478;
+    }
+  }
+  &__img-wrapper {
     margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      margin-right: 68px;
+    }
+    @media screen and (min-width: 1200px) {
+      margin-right: 16px;
+    }
+  }
+  &__information-wrapper {
+    @media screen and (min-width: 768px) {
+      width: 265px;
+    }
   }
   &__title {
+    @media screen {
+      font-size: 30px;
+      line-height: (35 / 30);
+    }
     margin-bottom: 20px;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
 
     color: #000000;
-
-    // @media screen and (max-width: 479px) {
-    //   width: 80%;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    // }
   }
   &__film-information-list {
     margin-bottom: 20px;
@@ -120,6 +154,26 @@
     font-size: 12px;
     line-height: (16 / 12);
     color: #000000;
+  }
+  &__vote--red {
+    background: #b92f2c;
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+  }
+  &__vote--gray {
+    background: #f7f7f7;
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
   }
   &__subtitle {
     margin-bottom: 8px;
@@ -188,20 +242,39 @@
 
   &__btn-wrapper {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 4px;
+    justify-content: center;
   }
   &__watch-video {
+    @media screen and (min-width: 320px) {
+      left: 40%;
+      top: 35%;
+    }
+    @media screen and (min-width: 768px) {
+      left: 25%;
+      top: 35%;
+    }
+    @media screen and (min-width: 1200px) {
+      left: 28%;
+      top: 40%;
+    }
     position: absolute;
-    left: 42%;
-    top: 42%;
+
     z-index: 2;
     background-color: transparent;
     border: none;
   }
   &__icon-play {
     fill: #b92f2c;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover,
+    :focus {
+      fill: orangered;
+      transform: scale(1.2);
+    }
   }
 }
 .no-scroll {

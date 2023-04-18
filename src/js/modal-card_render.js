@@ -25,11 +25,11 @@ export default async function fetchModalCard(objectMovie) {
   alt="film-poster"
   width="240"
 /> </div>
-<p class="modal-card__title">${title}</p>
+<div class="modal-card__information-wrapper"><p class="modal-card__title">${title}</p>
 <ul class="modal-card__film-information-list">
 <div class="modal-card__film-information-items-wrrapper">
   <li class="modal-card__film-information__items ">Vote / Votes</li>
-  <p class="modal-card__film-information__text">${vote_average}/${vote_count}</p>
+  <p class="modal-card__film-information__text"><span class="modal-card__vote--gray">${vote_count}</span>/<span class="modal-card__vote--red">${vote_average}</span></p>
 </div>
 <div class="modal-card__film-information-items-wrrapper">
 <li class="modal-card__film-information__items">
@@ -64,7 +64,7 @@ type="button"
 data-card-modal-queue-film
 >
 add to queue
-</button>
+</button></div>
 </div>`;
 
   return (modalCardRender.innerHTML = markup);
