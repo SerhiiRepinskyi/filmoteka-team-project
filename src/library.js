@@ -10,6 +10,7 @@ import './js/render-watched';
 import './js/render-queue';
 import './js/modal-card_render';
 import './js/modal-card_library';
+import './js/modal-buttons-library';
 
 import './js/genres_data';
 import './js/modal_contributor';
