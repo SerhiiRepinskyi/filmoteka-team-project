@@ -20,3 +20,6 @@ import './js/search_film';
 
 import './js/slider-to-top';
 import './js/themse-picker'
+
+import './js/modal-card_markup';
+import './js/trailer';
