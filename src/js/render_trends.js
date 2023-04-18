@@ -1,7 +1,7 @@
 import { FilmAPI } from './api';
 import { filmCardMarkup } from './card_markup';
 import { createPagination } from './pagination';
-import refs from './refs';
+import {refs} from './refs';
 
 export const filmTrendsAPI = new FilmAPI();
 

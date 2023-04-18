@@ -1,6 +1,7 @@
 import './sass/main.scss';
-
+import './js/refs';
 import './js/api';
+import './js/onAuth';
 import './js/main';
 import './js/library_button';
 import './js/test';

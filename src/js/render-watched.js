@@ -1,6 +1,6 @@
 import { DatabaseAPI } from './firebase/database-api';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import refs from './refs';
+import {refs} from './refs';
 import { renderMarkup } from './lib-card-markup';
 
 export const service = new DatabaseAPI();

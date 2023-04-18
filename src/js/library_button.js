@@ -1,6 +1,6 @@
 import { renderWatchedList } from './render-watched';
 import { renderQueueList } from './render-queue';
-import refs from './refs';
+import {refs} from './refs';
 
 function handleButtonClick(event) {
   const clickedButton = event.target;
