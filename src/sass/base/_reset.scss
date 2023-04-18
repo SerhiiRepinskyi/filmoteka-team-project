@@ -34,3 +34,11 @@ img {
   height: auto;
   // width: 100%;
 }
+button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+a:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}

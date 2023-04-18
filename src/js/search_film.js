@@ -3,22 +3,26 @@ import { filmCardMarkup } from './card_markup';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import fetchPopularMovies from './render_trends';
 import Notiflix from 'notiflix';
+import { createPagination } from './pagination';
 
 Loading.pulse({
   svgColor: '#b92f2c',
 });
-
-const filmTrendsAPI = new FilmAPI();
+Loading.remove(1000);
+export const filmSerchsAPI = new FilmAPI();
 
 const galleryEl = document.querySelector('.cards__list');
 const form = document.querySelector('.header-form');
 const input = document.querySelector('.header-form__input');
 const message = document.querySelector('.header-home-warning');
-message.style.display = 'none';
-// console.log(form);
 
-form.addEventListener('submit', serch);
-input.addEventListener('input', inputValue);
+if (form === null) {
+  return;
+} else {
+  message.style.display = 'none';
+  form.addEventListener('submit', serch);
+  input.addEventListener('input', inputValue);
+}
 
 function inputValue(e) {
   // console.log(e.data);
@@ -40,18 +44,29 @@ async function serch(e) {
     return info();
   }
 
-  filmTrendsAPI.query = input.value;
+  filmSerchsAPI.query = input.value;
+  filmSerchsAPI.page = 1;
+  renderSerchMovies(1);
+}
 
-  const fetchedData = await filmTrendsAPI.fetchSearhMovies()
-    .then(res => res.results)
+export default async function renderSerchMovies(option1) {
+  try {
+    const { results, total_results } = await filmSerchsAPI.fetchSearhMovies();
 
-    if (fetchedData.length === 0) {
-        showsNotification();
-        hidesNotification();
-        return warning();
-      }
-  // console.log('FETCH', fetchedData);
-  galleryEl.innerHTML = await filmCardMarkup(fetchedData);
+    if (results.length === 0) {
+      showsNotification();
+      hidesNotification();
+      return warning();
+    }
+    createPagination(option1, 2, total_results);
+
+    console.log('FETCH', results);
+
+    galleryEl.innerHTML = '';
+    galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 
@@ -60,9 +75,7 @@ function info() {
 }
 
 function warning() {
-  Notiflix.Notify.failure(
-    "The film with such a title does not exist."
-  );
+  Notiflix.Notify.failure('The film with such a title does not exist.');
 }
 
 function showsNotification() {
@@ -77,5 +90,3 @@ function hidesNotification() {
     message.style.display = 'none';
   }, 4000);
 }
-
-

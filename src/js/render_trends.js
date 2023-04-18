@@ -1,24 +1,23 @@
 import { FilmAPI } from './api';
 import { filmCardMarkup } from './card_markup';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { createPagination } from './pagination';
 
-
-  
 const galleryEl = document.querySelector('.cards__list');
-const filmTrendsAPI = new FilmAPI();
-const trendsMovieEl = document.querySelector('.trends__movie');
+export const filmTrendsAPI = new FilmAPI();
+
 export default async function fetchPopularMovies() {
-  
-  
-  galleryEl.innerHTML = '';
-  
-  const fetchedData = await filmTrendsAPI
-    .fetchTrending()
-    .then(res => res.results);
+  try {
+    const { results, total_results } = await filmTrendsAPI.fetchTrending();
+    filmTrendsAPI.page = 1;
+    createPagination(2, 1, total_results);
 
-  console.log('FETCH', fetchedData);
+    console.log('FETCH', results);
 
-  galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(fetchedData));
-  window.removeEventListener('load', fetchPopularMovies);
-  
+    galleryEl.innerHTML = '';
+    galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
+
+    window.removeEventListener('load', fetchPopularMovies);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
