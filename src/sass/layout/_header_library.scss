@@ -4,12 +4,14 @@
   border-radius: 10px;
   padding: 14px 14px 24px 14px;
   background: rgba($color: #ff980d, $alpha: 0.9);
+
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.4) 65.37%
     ),
     url('../img/orange_bcg_mobile.jpeg');
+  background-color: none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,10 +23,11 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    background-color: none;
 
-    mix-blend-mode: multiply;
     background-image: url('../img/orange_bcg_desktop.jpeg'),
       linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #ffa225 97.43%);
+    mix-blend-mode: multiply;
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -33,6 +36,7 @@
   @media screen and (min-width: 1280px) {
     max-width: 1216px;
     padding: 16px 32px 32px 32px;
+    background-color: none;
     mix-blend-mode: multiply;
     background-image: linear-gradient(
         267.62deg,
@@ -122,6 +126,7 @@
   @media screen and (min-width: 1280px) {
     font-size: 64px;
     line-height: calc(75 / 64);
+    margin-right: auto;
   }
 }
 
@@ -199,7 +204,7 @@
 }
 .auth.auth_lib::after {
   content: ' ';
-  display:inline-block;
+  display: inline-block;
 
   width: 15px;
   height: 15px;
@@ -225,7 +230,6 @@
     height: 34px;
     @media screen and (min-width: 768px) {
       height: 38px;
-      
 
       padding: 0 9px;
     }
@@ -278,5 +282,20 @@
       width: 24px;
       height: 24px;
     }
+  }
+}
+
+.lib-btn__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  @media screen and (min-width: 768px) {
+    justify-content: right;
+    align-items: end;
+  }
+  @media screen and (min-width: 1280px) {
+
   }
 }

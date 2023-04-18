@@ -18,3 +18,4 @@ import './js/firebase/auth-modal';
 import './js/search_film';
 
 import './js/slider-to-top';
+import './js/themse-picker'
