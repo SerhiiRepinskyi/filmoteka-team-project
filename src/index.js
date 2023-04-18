@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/refs';
 import './js/api';
 import './js/main';
 import './js/test';
