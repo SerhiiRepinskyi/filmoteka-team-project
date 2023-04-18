@@ -1,9 +1,9 @@
 import './sass/main.scss';
 
 import './js/api';
+import './js/main';
 import './js/library_button';
-import './js/authlib_btn';
-// import './js/test';
+import './js/test';
 import './js/card_markup';
 // import './js/render_trends';
 

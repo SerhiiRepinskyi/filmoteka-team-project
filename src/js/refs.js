@@ -1,3 +1,4 @@
-
-
-export const myLibraryBtn = document.querySelector('.lib__btn');
+export const refs = {
+  myLibraryBtn: document.querySelector('.lib__btn'),
+  libAuthBtnEl: document.querySelector('.auth_lib'),
+};
