@@ -1,4 +1,5 @@
 import { DatabaseAPI } from './firebase/database-api';
+import { Report } from 'notiflix';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firebaseApp } from './firebase/firebase-init';
 import {
@@ -18,11 +19,20 @@ export async function renderWatchedList() {
   Loading.pulse({
     svgColor: '#b92f2c',
   });
-  const listArr = await service.getWatchedList();
-  const markup = renderMarkup(listArr);
-  galleryEl.insertAdjacentHTML('beforeend', markup);
-  Loading.remove();
-  window.removeEventListener('load', renderWatchedList);
+  try {
+    const listArr = await service.getWatchedList();
+    const markup = renderMarkup(listArr);
+    galleryEl.insertAdjacentHTML('beforeend', markup);
+    Loading.remove();
+    window.removeEventListener('load', renderWatchedList);
+  } catch (error) {
+    console.log(error);
+    Report.info(
+      'Filmoteka Info',
+      'This List is empty. Start adding some movies to see them here',
+      'OK'
+    );
+  }
 }
 
 function renderMarkup(listArr) {

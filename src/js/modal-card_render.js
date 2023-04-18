@@ -52,14 +52,14 @@ export default async function fetchModalCard(objectMovie) {
 <p class="modal-card__text">${overview}
 </p><div class="modal-card__btn-wrapper">
 <button
-class="modal-card__watched-btn"
+class="modal-card__watched-btn add-to-watched"
 type="button"
 data-card-modal-watched-film
 >
 add to Watched
 </button>
 <button
-class="modal-card__queue-btn"
+class="modal-card__queue-btn add-to-queue"
 type="button"
 data-card-modal-queue-film
 >
