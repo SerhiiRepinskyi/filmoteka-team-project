@@ -11,7 +11,7 @@ import './js/modal-card_open';
 import './js/modal-card_render';
 import './js/pagination';
 // ...
-import './js/firebase/firebase-auth';
+import './js/firebase/firebase-auth-home';
 import './js/firebase/auth-modal';
 import './js/search_film';
 
