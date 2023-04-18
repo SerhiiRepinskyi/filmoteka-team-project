@@ -27,7 +27,7 @@ if (form === null) {
 function inputValue(e) {
   // console.log(e.data);
   if (input.value.length === 0) {
-    fetchPopularMovies();
+    fetchPopularMovies(1);
   }
 }
 

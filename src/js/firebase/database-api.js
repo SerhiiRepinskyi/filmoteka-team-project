@@ -1,61 +1,79 @@
 import { firebaseApp } from './firebase-init';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  update,
-  push,
-  remove,
-  get,
-} from 'firebase/database';
+import { getDatabase, ref, set, onValue, remove, get } from 'firebase/database';
 
 export class DatabaseAPI {
   #AUTH = getAuth(firebaseApp);
   #DATABASE = getDatabase(firebaseApp);
 
-  addToWatched(movieObj) {
-    onAuthStateChanged(this.#AUTH, user => {
-      if (user) {
-        let userId = user.uid;
-        const reference = ref(
-          this.#DATABASE,
-          `users_library/${userId}/watched/${movieObj.id}`
-        );
-        get(reference).then(snapshot => {
+  async checkPresenseInWatched(movieId) {
+    return new Promise(async resolve => {
+      onAuthStateChanged(this.#AUTH, async user => {
+        if (user) {
+          let userId = user.uid;
+          const reference = ref(
+            this.#DATABASE,
+            `users_library/${userId}/watched/${movieId}`
+          );
+          const snapshot = await get(reference);
           if (snapshot.exists()) {
-            console.log(`'${movieObj.title}' is already in the Watched List`);
-            return;
+            resolve(true);
           } else {
-            set(reference, movieObj);
-            console.log(`'${movieObj.title}' added to Watched List`);
+            resolve(false);
           }
-        });
-      }
+        }
+      });
     });
   }
 
-  addToQueue(movieObj) {
-    onAuthStateChanged(this.#AUTH, user => {
-      if (user) {
-        let userId = user.uid;
-        const reference = ref(
-          this.#DATABASE,
-          `users_library/${userId}/queue/${movieObj.id}`
-        );
-
-        get(reference).then(snapshot => {
+  async checkPresenseInQueue(movieId) {
+    return new Promise(async resolve => {
+      onAuthStateChanged(this.#AUTH, async user => {
+        if (user) {
+          let userId = user.uid;
+          const reference = ref(
+            this.#DATABASE,
+            `users_library/${userId}/queue/${movieId}`
+          );
+          const snapshot = await get(reference);
           if (snapshot.exists()) {
-            console.log(`'${movieObj.title}' is already in the Queue List`);
-            return;
+            resolve(true);
           } else {
-            set(reference, movieObj);
-            console.log(`'${movieObj.title}' added to Queue List`);
+            resolve(false);
           }
-        });
-      }
+        }
+      });
     });
+  }
+
+  async addToWatched(movieObj) {
+    const user = await new Promise(resolve => {
+      onAuthStateChanged(this.#AUTH, user => resolve(user));
+    });
+    if (user) {
+      const userId = user.uid;
+      const reference = ref(
+        this.#DATABASE,
+        `users_library/${userId}/watched/${movieObj.id}`
+      );
+
+      await set(reference, movieObj);
+    }
+  }
+
+  async addToQueue(movieObj) {
+    const user = await new Promise(resolve => {
+      onAuthStateChanged(this.#AUTH, user => resolve(user));
+    });
+    if (user) {
+      const userId = user.uid;
+      const reference = ref(
+        this.#DATABASE,
+        `users_library/${userId}/queue/${movieObj.id}`
+      );
+
+      await set(reference, movieObj);
+    }
   }
 
   async getWatchedList() {
@@ -73,7 +91,6 @@ export class DatabaseAPI {
       const moviesArray = Object.keys(moviesObject).map(key => {
         return moviesObject[key];
       });
-      console.log(moviesArray);
       return moviesArray;
     }
   }
@@ -93,52 +110,37 @@ export class DatabaseAPI {
       const moviesArray = Object.keys(moviesObject).map(key => {
         return moviesObject[key];
       });
-      console.log(moviesArray);
       return moviesArray;
     }
   }
 
-  removeMovieFromWatched(movieId) {
-    onAuthStateChanged(this.#AUTH, user => {
-      let userId = user.uid;
-
-      const reference = ref(this.#DATABASE, `users_library/${userId}/watched/`);
-
-      onValue(reference, snapshot => {
-        if (snapshot.val() === undefined || snapshot.val() === null) {
-          return;
-        }
-
-        const refToRemove = ref(
-          this.#DATABASE,
-          `users_library/${userId}/watched/${movieId}`
-        );
-
-        remove(refToRemove);
-        console.log('Movie removed from watched');
-      });
+  async removeMovieFromWatched(movieId) {
+    const user = await new Promise(resolve => {
+      onAuthStateChanged(this.#AUTH, user => resolve(user));
     });
+    if (user) {
+      const userId = user.uid;
+      const reference = ref(
+        this.#DATABASE,
+        `users_library/${userId}/watched/${movieId}`
+      );
+
+      await remove(reference);
+    }
   }
 
-  removeMovieFromQueue(movieId) {
-    onAuthStateChanged(this.#AUTH, user => {
-      let userId = user.uid;
-
-      const reference = ref(this.#DATABASE, `users_library/${userId}/queue/`);
-
-      onValue(reference, snapshot => {
-        if (snapshot.val() === undefined || snapshot.val() === null) {
-          return;
-        }
-
-        const refToRemove = ref(
-          this.#DATABASE,
-          `users_library/${userId}/queue/${movieId}`
-        );
-
-        remove(refToRemove);
-        console.log('Movie removed from queue');
-      });
+  async removeMovieFromQueue(movieId) {
+    const user = await new Promise(resolve => {
+      onAuthStateChanged(this.#AUTH, user => resolve(user));
     });
+    if (user) {
+      const userId = user.uid;
+      const reference = ref(
+        this.#DATABASE,
+        `users_library/${userId}/queue/${movieId}`
+      );
+
+      await remove(reference);
+    }
   }
 }

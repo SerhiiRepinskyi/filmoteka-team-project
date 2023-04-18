@@ -11,6 +11,9 @@ const modalCardAPI = new FilmAPI();
 galeryList.addEventListener('click', getMovieObjOnClick);
 
 async function getMovieObjOnClick(evt) {
+  if (!evt.target.closest('.card-item')) {
+    return;
+  }
   let liId = evt.target.closest('.card-item').dataset.id;
   const movieObj = await modalCardAPI.fetchDetails(liId);
   fetchModalCard(movieObj);
@@ -23,7 +26,7 @@ window.addEventListener('keydown', handleEscKeyDown);
 function handleEscKeyDown(event) {
   if (event.code === 'Escape') {
     body.classList.remove('no-scroll');
-    modalCardBackdrop.classList.toggle('hidden');
+    modalCardBackdrop.classList.add('hidden');
   }
 }
 btnCloseModalEl.addEventListener('click', evt => {
