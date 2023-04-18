@@ -3,21 +3,29 @@
 .theme-toggle {
   display: flex;
   justify-content: center;
+  align-items: center;
   border-color: transparent;
   border-radius: 100px;
-
+  margin-bottom: 5px;
+  margin-top: 16px;
   text-align: left;
   padding: 5px 5px;
   --size: 2rem;
   --icon-fill: #b92f2c;
   --icon-fill-hover: #7d1917;
-  width: 80px;
-  height: 40px;
+  width: 50px;
+  height: 35px;
   background-color: var(--primary-background-color);
   outline: none;
   cursor: pointer;
 
   outline-offset: 5px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+    width: 80px;
+    height: 45px;
+  }
 
   & > svg {
     // inline-size: 100%;

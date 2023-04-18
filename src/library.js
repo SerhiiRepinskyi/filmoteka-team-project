@@ -17,4 +17,4 @@ import './js/firebase/firebase-auth-library';
 import './js/firebase/database-api';
 import './js/search_film';
 // import './js/slider-to-top';
-
+import './js/themse-picker'
