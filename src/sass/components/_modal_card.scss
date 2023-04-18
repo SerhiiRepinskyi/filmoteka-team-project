@@ -7,13 +7,14 @@
   background-color: rgba(0, 0, 0, 0.2);
 
   z-index: 999;
-
-  transition-property: all;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .modal-card {
+  .modal-card__backdrop.hidden & {
+    transform: translate(-50%, -50%) scale(0);
+    visibility: hidden;
+  }
+
   @media screen and (min-width: 320px) {
     width: 300px;
   }
@@ -97,7 +98,7 @@
     }
 
     @media screen and (min-width: 1200px) {
-      width: 375;
+      width: 300;
       height: 478;
     }
   }
@@ -118,7 +119,7 @@
   &__title {
     @media screen {
       font-size: 30px;
-      line-height: (35 / 30);
+      line-height: calc(35 / 30);
     }
     margin-bottom: 20px;
     font-weight: 500;
@@ -152,7 +153,7 @@
     flex-direction: row-reverse;
     font-weight: 500;
     font-size: 12px;
-    line-height: (16 / 12);
+    line-height: calc(16 / 12);
     color: #000000;
   }
   &__vote--red {
@@ -219,7 +220,7 @@
     padding: 10px 12px;
     font-weight: 500;
     font-size: 12px;
-    line-height: (14 / 12);
+    line-height: calc(14 / 12);
     color: #b92f2c;
 
     display: flex;
