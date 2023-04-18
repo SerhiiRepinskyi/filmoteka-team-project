@@ -5,5 +5,4 @@ export default refs = {
   galleryEl: document.querySelector('.cards__list'),
   buttonWatchedEl: document.querySelector('.lib-watched'),
   buttonQueueEl: document.querySelector('.lib-queue'),
-
 };
