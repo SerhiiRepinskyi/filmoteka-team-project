@@ -1,27 +1,26 @@
 import { renderWatchedList } from './render-watched';
-
-const buttonWatchedEl = document.querySelector('.btn_lib').firstElementChild;
-const buttonQueueEl = document.querySelector('.btn_lib').lastElementChild;
-const galleryEl = document.querySelector('.library-cards__list');
+import { renderQueueList } from './render-queue';
+import refs from './refs';
 
 function handleButtonClick(event) {
   const clickedButton = event.target;
-  if (clickedButton === buttonWatchedEl) {
-    galleryEl.innerHTML = "";
+  if (clickedButton === refs.buttonWatchedEl) {
+    refs.libGalleryEl.innerHTML = '';
     renderWatchedList();
-    if (!buttonWatchedEl.classList.contains('lib--active')) {
-      buttonWatchedEl.classList.add('lib--active');
-      buttonQueueEl.classList.remove('lib--active');
+    if (!refs.buttonWatchedEl.classList.contains('lib--active')) {
+      refs.buttonWatchedEl.classList.add('lib--active');
+      refs.buttonQueueEl.classList.remove('lib--active');
     }
-  } else if (clickedButton === buttonQueueEl) {
-    galleryEl.innerHTML = "";
-    if (!buttonQueueEl.classList.contains('lib--active')) {
-      buttonWatchedEl.classList.remove('lib--active');
-      buttonQueueEl.classList.add('lib--active');
+  } else if (clickedButton === refs.buttonQueueEl) {
+    refs.libGalleryEl.innerHTML = '';
+    renderQueueList();
+    if (!refs.buttonQueueEl.classList.contains('lib--active')) {
+      refs.buttonWatchedEl.classList.remove('lib--active');
+      refs.buttonQueueEl.classList.add('lib--active');
     }
   }
 }
 
-buttonWatchedEl.addEventListener('click', handleButtonClick);
-buttonQueueEl.addEventListener('click', handleButtonClick);
+refs.buttonWatchedEl.addEventListener('click', handleButtonClick);
+refs.buttonQueueEl.addEventListener('click', handleButtonClick);
 window.addEventListener('load', renderWatchedList);

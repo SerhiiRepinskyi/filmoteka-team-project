@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firebaseApp } from './firebase/firebase-init';
-import { refs } from './refs';
+import refs from './refs';
 
 export default async function onAuth() {
   const auth = getAuth(firebaseApp);
