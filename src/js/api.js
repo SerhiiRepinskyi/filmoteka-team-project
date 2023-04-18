@@ -4,7 +4,7 @@ export class FilmAPI {
 
   query = null;
   page = 1;
-  // detailsID = 3;
+  // detailsID = localStorage.getItem('LOCALSTORAGE_KEY');
   youTubeID = 3;
 
   async fetchTrending() {
@@ -27,9 +27,9 @@ export class FilmAPI {
     return movie;
   }
 
-  async fetchDetails(detailsID) {
+  async fetchDetails(detailsId) {
     const responce = await fetch(
-      `${this.#BASE_URL}/movie/${detailsID}?api_key=${
+      `${this.#BASE_URL}/movie/${detailsId}?api_key=${
         this.#API_KEY
       }&language=en-US`
     );
