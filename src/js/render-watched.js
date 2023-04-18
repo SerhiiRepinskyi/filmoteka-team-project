@@ -14,14 +14,13 @@ export async function renderWatchedList() {
     const listArr = await service.getWatchedList();
     const markup = renderMarkup(listArr);
     refs.libGalleryEl.insertAdjacentHTML('beforeend', markup);
-    Loading.remove();
     window.removeEventListener('load', renderWatchedList);
   } catch (error) {
-    console.log(error);
     Report.info(
       'Filmoteka Info',
       'This List is empty. Start adding some movies to see them here',
       'OK'
     );
   }
+  Loading.remove();
 }
