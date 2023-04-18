@@ -5,8 +5,6 @@ const modalCardRender = document.querySelector('.modal-card__render');
 const modalCardAPI = new FilmAPI();
 
 export default async function fetchModalCard(objectMovie) {
-  console.log(objectMovie);
-
   const posterPath = 'https://image.tmdb.org/t/p/w500';
   const {
     backdrop_path,
