@@ -9,7 +9,7 @@ import './js/genres_data';
 import './js/modal_contributor';
 import './js/pagination';
 // ...
-import './js/firebase/firebase-auth';
+import './js/firebase/firebase-auth-home';
 import './js/firebase/auth-modal';
 import './js/search_film';
 
