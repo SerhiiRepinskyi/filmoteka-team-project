@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import './js/refs';
 import './js/api';
+import './js/onAuth';
 import './js/main';
 import './js/test';
 import './js/card_markup';
@@ -16,5 +17,4 @@ import './js/firebase/firebase-auth-home';
 import './js/firebase/auth-modal';
 import './js/search_film';
 
-import './js/render-watched';
 import './js/slider-to-top';

@@ -1,6 +1,6 @@
 import { renderMarkup } from './lib-card-markup';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import refs from './refs';
+import {refs} from './refs';
 import { service } from './render-watched';
 
 export async function renderQueueList() {
