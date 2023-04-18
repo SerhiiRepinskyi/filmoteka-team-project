@@ -8,15 +8,10 @@ const auth = getAuth(firebaseApp);
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user);
-      console.log('user logged in');
-
       refs.openModalLibraryBtn.classList.add('log-out');
       refs.openModalLibraryBtn.setAttribute('title', 'Click to Log Out');
       refs.openModalLibraryBtn.classList.remove('log-in');
     } else {
-      console.log('user logged out');
-
       refs.openModalLibraryBtn.classList.remove('log-out');
       refs.openModalLibraryBtn.setAttribute('title', 'Click to Log In');
       refs.openModalLibraryBtn.classList.add('log-in');

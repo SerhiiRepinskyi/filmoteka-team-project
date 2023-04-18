@@ -17,5 +17,4 @@ export const refs = {
   loginForm: document.querySelector('.login-form-box'),
   registerForm: document.querySelector('.register-form-box'),
   homeHeader: document.querySelector('#header-home'),
-  // libraryHeader: document.querySelector('#header-library'),
 };

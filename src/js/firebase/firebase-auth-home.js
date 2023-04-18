@@ -14,15 +14,10 @@ const auth = getAuth(firebaseApp);
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user);
-      console.log('user logged in');
-
       refs.openModalHomeBtn.classList.add('log-out');
       refs.openModalHomeBtn.setAttribute('title', 'Click to Log Out');
       refs.openModalHomeBtn.classList.remove('log-in');
     } else {
-      console.log('user logged out');
-
       refs.openModalHomeBtn.classList.remove('log-out');
       refs.openModalHomeBtn.setAttribute('title', 'Click to Log In');
       refs.openModalHomeBtn.classList.add('log-in');
@@ -44,12 +39,10 @@ const createAccount = async e => {
       regPassword
     );
 
-    console.log(userCredential.user);
     refs.modal.classList.toggle('auth-modal-is-hidden');
     e.target.reset();
     Notify.success('You are registered. Have fun!');
   } catch (err) {
-    console.log(err.message);
     if (
       err.message ===
       'Firebase: Password should be at least 6 characters (auth/weak-password).'
@@ -83,13 +76,11 @@ const loginEmailPassword = async e => {
       regPassword
     );
 
-    console.log(userCredential.user);
     refs.modal.classList.toggle('auth-modal-is-hidden');
 
     e.target.reset();
     Notify.success('You are loged in. Welcome back!');
   } catch (err) {
-    console.log(err.message);
     if (err.message === 'Firebase: Error (auth/missing-password).') {
       Notify.warning('Please enter password');
     }
