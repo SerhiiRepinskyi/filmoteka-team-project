@@ -6,4 +6,5 @@ export const refs = {
   buttonWatchedEl: document.querySelector('.lib-watched'),
   buttonQueueEl: document.querySelector('.lib-queue'),
   plugWrapperLight: document.querySelector('.light__wrap'),
+  footerEl: document.querySelector('.footer'),
 };
