@@ -150,13 +150,22 @@
   }
 
   &__film-information__text {
-    display: flex;
+    text-align: right;
     flex-direction: row-reverse;
     font-weight: 500;
     font-size: 12px;
     line-height: calc(16 / 12);
     color: #000000;
   }
+  &__film-information__text__rate {
+    display: flex;
+    text-align: right;
+    flex-direction: row-reverse;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    color: #000000;
+    }
   &__vote--red {
     background: #b92f2c;
     border-radius: 5px;

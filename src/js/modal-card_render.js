@@ -27,7 +27,7 @@ export default async function fetchModalCard(objectMovie) {
 <ul class="modal-card__film-information-list">
 <div class="modal-card__film-information-items-wrrapper">
   <li class="modal-card__film-information__items ">Vote / Votes</li>
-  <p class="modal-card__film-information__text"><span class="modal-card__vote--gray">${vote_count}</span>/<span class="modal-card__vote--red">${vote_average}</span></p>
+ <div> <p class="modal-card__film-information__text__rate"><span class="modal-card__vote--gray">${vote_count}</span>/<span class="modal-card__vote--red">${vote_average}</span></p></div>
 </div>
 <div class="modal-card__film-information-items-wrrapper">
 <li class="modal-card__film-information__items">
@@ -44,7 +44,7 @@ export default async function fetchModalCard(objectMovie) {
 </li>
 <p class="modal-card__film-information__text">${genres.map(
     ganre => ganre.name
-  )}</p></div>
+  ).join(', ')}</p></div>
 </ul>
 <p class="modal-card__subtitle">About</p>
 <p class="modal-card__text">${overview}
@@ -67,3 +67,4 @@ add to queue
 
   return (modalCardRender.innerHTML = markup);
 }
+
