@@ -84,7 +84,7 @@
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     &:hover {
-      fill: orangered;
+      fill: #b92f2c;
     }
   }
   &__img {
@@ -104,6 +104,7 @@
     }
   }
   &__img-wrapper {
+    position: relative;
     margin-bottom: 20px;
     @media screen and (min-width: 768px) {
       margin-right: 68px;
@@ -259,19 +260,10 @@
   }
   &__watch-video {
     cursor: pointer;
-    @media screen and (min-width: 320px) {
-      left: 40%;
-      top: 35%;
-    }
-    @media screen and (min-width: 768px) {
-      left: 25%;
-      top: 35%;
-    }
-    @media screen and (min-width: 1200px) {
-      left: 28%;
-      top: 40%;
-    }
+
     position: absolute;
+    top: 40%;
+    left: 40%;
 
     z-index: 2;
     background-color: transparent;
@@ -284,7 +276,6 @@
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     &:hover,
     :focus {
-      fill: orangered;
       transform: scale(1.2);
     }
   }
