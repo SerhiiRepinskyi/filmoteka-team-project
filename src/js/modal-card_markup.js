@@ -1,10 +1,10 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { FilmAPI } from './api';
+import { handleEscKeyDown } from './modal-card_open';
 
 const apiA = new FilmAPI();
 export function openModalTrailer(url) {
-  console.log(url, 'url');
   const instance = basicLightbox.create(
     `<iframe
       width="960"
@@ -14,17 +14,24 @@ export function openModalTrailer(url) {
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
-    ></iframe>`
+    ></iframe>`,
+    {
+      onShow: instance => {
+        window.removeEventListener('keydown', handleEscKeyDown);
+        window.addEventListener('keydown', closeTrailerByEsc);
+      },
+      onClose: instance => {
+        window.addEventListener('keydown', handleEscKeyDown);
+        window.removeEventListener('keydown', closeTrailerByEsc);
+      },
+    }
   );
 
   instance.show();
 
-  // Close trailer by Escape
-  window.addEventListener('keydown', closeTrailerByEsc);
-    function closeTrailerByEsc(e) {
-      if (e.code === 'Escape') {
-        instance.close();
-        window.removeEventListener('keydown', closeTrailerByEsc);
-      }
+  function closeTrailerByEsc(event) {
+    if (event.code === 'Escape') {
+      instance.close();
     }
+  }
 }
