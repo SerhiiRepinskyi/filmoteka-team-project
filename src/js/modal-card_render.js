@@ -1,5 +1,5 @@
 import { FilmAPI } from './api';
-
+import { onPlayTreilerClick } from './trailer';
 const modalCardRender = document.querySelector('.modal-card__render');
 
 const modalCardAPI = new FilmAPI();
@@ -70,5 +70,7 @@ add to queue
 </button></div>
 </div>`;
 
-  return (modalCardRender.innerHTML = markup);
+modalCardRender.innerHTML = markup;
+const onClickTrailerBtn = document.querySelector('.modal-card__watch-video');
+onClickTrailerBtn.addEventListener('click', onPlayTreilerClick);
 }
