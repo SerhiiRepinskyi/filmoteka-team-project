@@ -17,7 +17,12 @@ export default async function fetchModalCard(objectMovie) {
     genres,
     popularity,
   } = objectMovie;
-  const markup = `<div class="modal-card__img-wrapper"><img
+  const markup = `<div class="modal-card__img-wrapper"><button class="modal-card__watch-video" type="button">
+  <svg class="modal-card__icon-play" width="45" height="45" viewBox="0 0 32 32">
+  <path style='fill: #b92f2c' d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13zM12 9l12 7-12 7z"></path>
+  </svg>
+</button>
+  <img
   class="modal-card__img"
   src="${posterPath}${poster_path}"
   alt="film-poster"
