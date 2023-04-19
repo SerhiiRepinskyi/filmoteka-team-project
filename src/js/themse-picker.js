@@ -1,6 +1,8 @@
+import { refs } from './refs';
+
 const root = document.querySelector(':root');
 const header = document.querySelector('.header_container');
-const storageKey = 'theme-preference';
+export const storageKey = 'theme-preference';
 
 export const onThemeBtnClick = () => {
   // flip current value
@@ -28,7 +30,8 @@ const reflectPreference = () => {
   document.body.setAttribute('data-theme', theme.value);
   if (theme.value === 'light') {
     document.body.style.setProperty('--primary-text-color', '#000000');
-    document.body.style.setProperty('--primary-background-color', '#f0f0f0');
+    document.body.style.setProperty('--primary-background-color', '#f0f0f0');     
+    
     if (header) {
       header.style.setProperty('mix-blend-mode', 'multiply');
       header.style.setProperty('background-color', 'none');

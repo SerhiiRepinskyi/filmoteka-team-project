@@ -5,6 +5,5 @@ export const refs = {
   galleryEl: document.querySelector('.cards__list'),
   buttonWatchedEl: document.querySelector('.lib-watched'),
   buttonQueueEl: document.querySelector('.lib-queue'),
-  plugWrapperDark: document.querySelector('.dark__wrap'),
   plugWrapperLight: document.querySelector('.light__wrap'),
 };
