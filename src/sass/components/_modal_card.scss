@@ -66,6 +66,7 @@
     justify-content: center;
     background-color: transparent;
     color: #131313;
+    cursor: pointer;
 
     transition-property: all;
     transition-duration: 300ms;
@@ -98,7 +99,7 @@
     }
 
     @media screen and (min-width: 1200px) {
-      width: 300;
+      width: 320;
       height: 478;
     }
   }
@@ -197,7 +198,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-
+    cursor: pointer;
     display: flex;
     align-items: center;
     text-align: center;
@@ -222,7 +223,7 @@
     font-size: 12px;
     line-height: calc(14 / 12);
     color: #b92f2c;
-
+    cursor: pointer;
     display: flex;
     align-items: center;
     text-align: center;
@@ -248,6 +249,7 @@
     justify-content: center;
   }
   &__watch-video {
+    cursor: pointer;
     @media screen and (min-width: 320px) {
       left: 40%;
       top: 35%;
