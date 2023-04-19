@@ -10,9 +10,7 @@ export default async function fetchPopularMovies(option1) {
     const { results, total_results } = await filmTrendsAPI.fetchTrending();
     filmTrendsAPI.page = 1;
     createPagination(option1, 1, total_results);
-
-    console.log('FETCH', results);
-
+  
     refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
 
