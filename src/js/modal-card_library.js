@@ -1,5 +1,7 @@
 import { FilmAPI } from './api';
 import fetchModalCard from './modal-card_render';
+import { renderWatchedListOnModalClose } from './render-watched';
+import { renderQueueListOnModalClose } from './render-queue';
 
 const modalCardBackdrop = document.querySelector('.modal-card__backdrop');
 const galeryList = document.querySelector('.library-cards__list');
@@ -33,16 +35,29 @@ function handleEscKeyDown(event) {
   if (event.code === 'Escape') {
     body.classList.remove('no-scroll');
     modalCardBackdrop.classList.add('hidden');
+    renderLibraryOnCloseModal();
   }
 }
 btnCloseModalEl.addEventListener('click', evt => {
   body.classList.remove('no-scroll');
   modalCardBackdrop.classList.add('hidden');
+  renderLibraryOnCloseModal();
 });
 
 modalCardBackdrop.addEventListener('click', e => {
   if (e.target === modalCardBackdrop) {
     modalCardBackdrop.classList.add('hidden');
     body.classList.remove('no-scroll');
+    renderLibraryOnCloseModal();
   }
 });
+
+function renderLibraryOnCloseModal() {
+  if (
+    document.querySelector('.lib-watched').classList.contains('lib--active')
+  ) {
+    renderWatchedListOnModalClose();
+  } else {
+    renderQueueListOnModalClose();
+  }
+}

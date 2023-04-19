@@ -86,12 +86,18 @@ export class DatabaseAPI {
     const reference = ref(this.#DATABASE, `users_library/${userId}/watched/`);
 
     const snapshot = await get(reference);
-    if (snapshot.exists) {
+    if (
+      snapshot.exists &&
+      snapshot.val() !== null &&
+      snapshot.val() !== undefined
+    ) {
       const moviesObject = snapshot.val();
       const moviesArray = Object.keys(moviesObject).map(key => {
         return moviesObject[key];
       });
       return moviesArray;
+    } else {
+      return [];
     }
   }
 
@@ -105,12 +111,18 @@ export class DatabaseAPI {
     const reference = ref(this.#DATABASE, `users_library/${userId}/queue/`);
 
     const snapshot = await get(reference);
-    if (snapshot.exists) {
+    if (
+      snapshot.exists &&
+      snapshot.val() !== null &&
+      snapshot.val() !== undefined
+    ) {
       const moviesObject = snapshot.val();
       const moviesArray = Object.keys(moviesObject).map(key => {
         return moviesObject[key];
       });
       return moviesArray;
+    } else {
+      return [];
     }
   }
 
