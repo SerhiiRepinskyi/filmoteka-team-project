@@ -33,6 +33,7 @@ function handleEscKeyDown(event) {
   if (event.code === 'Escape') {
     body.classList.remove('no-scroll');
     modalCardBackdrop.classList.add('hidden');
+    window.removeEventListener('keydown', handleEscKeyDown);
   }
 }
 btnCloseModalEl.addEventListener('click', evt => {
