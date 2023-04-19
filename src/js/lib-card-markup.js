@@ -1,14 +1,16 @@
 import {
-    getGenresLib,
-    getReleaseDate,
-    getMovieTitle,
-    getMoviePoster,
-  } from './markup-func';
+  getGenresLib,
+  getReleaseDate,
+  getMovieTitle,
+  getMoviePoster,
+} from './markup-func';
+import { storageKey } from './themse-picker';
+import { refs } from './refs';
 
 export function renderMarkup(listArr) {
-    return listArr
-      .map(({ id, title, poster_path, release_date, genres }) => {
-        return `<li class='card-item' data-id='${id}'>
+  return listArr
+    .map(({ id, title, poster_path, release_date, genres }) => {
+      return `<li class='card-item' data-id='${id}'>
         <div class='image__wrapper'>
           <img class='movie__poster' src='${getMoviePoster(
             poster_path
@@ -23,6 +25,10 @@ export function renderMarkup(listArr) {
         </div>
         </div>
         </li>`;
-      })
-      .join('');
-  }
+    })
+    .join('');
+}
+
+export function renderLibPlug() {
+    refs.plugWrapperLight.classList.remove('hidden');
+}
