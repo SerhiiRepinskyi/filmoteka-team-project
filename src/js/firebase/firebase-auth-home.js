@@ -7,7 +7,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { refs } from './auth-modal-refs';
-import { Notify } from 'notiflix';
+import { Notify, Confirm } from 'notiflix';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
@@ -102,8 +102,25 @@ const logout = async e => {
   if (!e.target.classList.contains('log-out')) {
     return;
   }
-  await signOut(auth);
-  Notify.success('You are loged out. See you soon');
+  Confirm.show(
+    'You are about to log out.',
+    'Proceed?',
+    'Log Out',
+    'Stay Logged In',
+    async () => {
+      await signOut(auth);
+      Notify.success('You are loged out. See you soon');
+    },
+    () => {
+      return;
+    },
+    {
+      titleColor: '#b92f2c',
+      fontFamily: 'Roboto, sans-serif;',
+      borderRadius: '10px',
+      okButtonBackground: '#b92f2c',
+    }
+  );
 };
 
 refs.openModalHomeBtn.addEventListener('click', logout);
