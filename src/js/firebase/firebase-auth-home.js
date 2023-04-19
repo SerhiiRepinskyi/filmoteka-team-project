@@ -39,7 +39,7 @@ const createAccount = async e => {
 
     refs.modal.classList.toggle('auth-modal-is-hidden');
     e.target.reset();
-    Notify.success('You are registered. Have fun!');
+    Notify.success('You have successfully registered and logged in. Have fun!');
   } catch (err) {
     if (
       err.message ===
@@ -48,10 +48,10 @@ const createAccount = async e => {
       Notify.warning('Password should be at least 6 characters');
     }
     if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
-      Notify.warning('User with this email is already registered');
+      Notify.warning('An account is already registered with this email');
     }
     if (err.message === 'Firebase: Error (auth/invalid-email).') {
-      Notify.warning('Please enter right email');
+      Notify.warning('Please enter valid email address');
     }
     if (err.message === 'Firebase: Error (auth/missing-password).') {
       Notify.warning('Please enter password');
@@ -77,21 +77,21 @@ const loginEmailPassword = async e => {
     refs.modal.classList.toggle('auth-modal-is-hidden');
 
     e.target.reset();
-    Notify.success('You are loged in. Welcome back!');
+    Notify.success('You have logged in. Welcome back!');
   } catch (err) {
     if (err.message === 'Firebase: Error (auth/missing-password).') {
       Notify.warning('Please enter password');
     }
     if (err.message === 'Firebase: Error (auth/invalid-email).') {
-      Notify.warning('Please enter right email');
+      Notify.warning('Please enter valid email address');
     }
     if (err.message === 'Firebase: Error (auth/user-not-found).') {
       Notify.warning(
-        'User not found. Please check if you entered right email and password'
+        'User not found. Please check if you entered valid email address and password'
       );
     }
     if (err.message === 'Firebase: Error (auth/wrong-password).') {
-      Notify.warning('You entered wrong password');
+      Notify.warning('You have entered incorrect password');
     }
   }
 };
@@ -109,7 +109,7 @@ const logout = async e => {
     'Stay Logged In',
     async () => {
       await signOut(auth);
-      Notify.success('You are loged out. See you soon');
+      Notify.success('You have been logged out. See you soon');
     },
     () => {
       return;
