@@ -6,7 +6,6 @@ export const storageKey = 'theme-preference';
 
 export const onThemeBtnClick = () => {
   // flip current value
-  console.log(theme.value);
   theme.value = theme.value === 'light' ? 'dark' : 'light';
 
   setPreference();
@@ -30,9 +29,9 @@ const reflectPreference = () => {
   document.body.setAttribute('data-theme', theme.value);
   if (theme.value === 'light') {
     document.body.style.setProperty('--primary-text-color', '#000000');
-    document.body.style.setProperty('--primary-background-color', '#f0f0f0'); 
-    refs.footerEl.style.setProperty('background-color', '#f7f7f7'); 
-    
+    document.body.style.setProperty('--primary-background-color', '#f0f0f0');
+    refs.footerEl.style.setProperty('background-color', '#f7f7f7');
+
     if (header) {
       header.style.setProperty('mix-blend-mode', 'multiply');
       header.style.setProperty('background-color', 'none');
@@ -40,7 +39,7 @@ const reflectPreference = () => {
   } else {
     document.body.style.setProperty('--primary-text-color', '#f0f0f0');
     document.body.style.setProperty('--primary-background-color', '#131313');
-    refs.footerEl.style.setProperty('background-color', '#0c0c0c'); 
+    refs.footerEl.style.setProperty('background-color', '#0c0c0c');
     if (header) {
       header.style.setProperty('mix-blend-mode', 'normal');
       header.style.setProperty('background-color', '#ffa225');
