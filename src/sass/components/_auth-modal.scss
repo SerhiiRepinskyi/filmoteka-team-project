@@ -126,10 +126,11 @@
 }
 
 .auth-title {
+  margin-bottom: 15px;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-
+  color: #000000;
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -164,6 +165,9 @@
   line-height: 16px;
   border: transparent;
   border-bottom: 1px solid black;
+  color: #000000;
+  // caret-color: #000000;
+  background-color: #fff;
   outline: transparent;
   transition: border-color 200ms ease;
 
@@ -183,6 +187,12 @@
   &::placeholder {
     color: transparent;
   }
+  &:-webkit-autofill {
+    -webkit-text-fill-color: #000000;
+    caret-color: #000000;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  }
 }
 
 .auth-input-label {
@@ -191,6 +201,7 @@
   top: 12px;
   font-size: 12px;
   line-height: 16px;
+  color: #000000;
   transition: top 200ms ease;
 
   @media screen and (min-width: 768px) {
@@ -256,6 +267,7 @@
   text-decoration: underline;
   border: none;
   background: transparent;
+  color: #000000;
   cursor: pointer;
   transition: color 200ms ease;
 
@@ -276,12 +288,12 @@
 }
 
 .login-hidden {
-  top: -325px;
+  top: -340px;
   opacity: 0;
 }
 
 .register-form-box {
-  top: -325px;
+  top: -340px;
   opacity: 1;
   transition: all 350ms ease;
 }
