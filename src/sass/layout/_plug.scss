@@ -8,17 +8,29 @@
 .plug__title {
   display: flex;
   text-align: center;
-  font-size: 32px;
+  font-size: 20px;
   color: var(--secondary-color);
   text-transform: uppercase;
   margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .plug__text {
   display: flex;
-  font-size: 32px;
+  font-size: 18px;
   color: var(--primary-text-color);
   text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .dark__wrap {
