@@ -11,7 +11,7 @@ const modalCardAPI = new FilmAPI();
 galeryList.addEventListener('click', getMovieObjOnClick);
 
 async function getMovieObjOnClick(evt) {
-  console.log(evt.target.closest('.cart-items'));
+  
   modalCardAPI.youTubeID = evt.target.closest('.card-item').dataset.id;
   localStorage.setItem(
     'LOCALSTORAGE_KEY',
