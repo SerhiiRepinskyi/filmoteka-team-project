@@ -15,7 +15,7 @@ const switchWatchedBtnToRemove = () => {
     watchedBtn.classList.remove('add-to-watched');
     watchedBtn.classList.add('remove-from-watched');
     watchedBtn.textContent = 'Remove from watched';
-  }, 150);
+  }, 200);
 };
 
 const switchQueueButtonToRemove = () => {
@@ -24,7 +24,7 @@ const switchQueueButtonToRemove = () => {
     queueBtn.classList.remove('add-to-queue');
     queueBtn.classList.add('remove-from-queue');
     queueBtn.textContent = 'Remove from queue';
-  }, 150);
+  }, 200);
 };
 
 const switchWatchedBtnToAdd = () => {
@@ -33,7 +33,7 @@ const switchWatchedBtnToAdd = () => {
     watchedBtn.classList.remove('remove-from-watched');
     watchedBtn.classList.add('add-to-watched');
     watchedBtn.textContent = 'Add to watched';
-  }, 150);
+  }, 200);
 };
 
 const switchQueueButtonToAdd = () => {
@@ -42,7 +42,7 @@ const switchQueueButtonToAdd = () => {
     queueBtn.classList.remove('remove-from-queue');
     queueBtn.classList.add('add-to-queue');
     queueBtn.textContent = 'Add to queue';
-  }, 150);
+  }, 200);
 };
 
 export const checkList = async e => {
@@ -127,7 +127,6 @@ export const removeMovies = async e => {
       }
     }
   } catch (error) {
-    console.log(error);
     Notify.failure('Ooops! Something went wrong. Try reloading page');
   }
 };

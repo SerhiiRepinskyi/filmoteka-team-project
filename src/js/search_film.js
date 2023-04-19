@@ -25,7 +25,6 @@ if (form === null) {
 }
 
 function inputValue(e) {
-  // console.log(e.data);
   if (input.value.length === 0) {
     fetchPopularMovies(1);
   }
@@ -60,21 +59,19 @@ export default async function renderSerchMovies(option1) {
     }
     createPagination(option1, 2, total_results);
 
-    console.log('FETCH', results);
-
     galleryEl.innerHTML = '';
     galleryEl.insertAdjacentHTML('beforeend', await filmCardMarkup(results));
   } catch (error) {
-    console.log(error.message);
+    Notiflix.Notify.failure('Ooops! Something went wrong. Try reloading page');
   }
 }
 
 function info() {
-  Notiflix.Notify.info('Enter something in the search field.');
+  Notiflix.Notify.info('Enter movie title in the search field.');
 }
 
 function warning() {
-  Notiflix.Notify.failure('Could not find film with this title.');
+  Notiflix.Notify.failure('Could not find movie with this title.');
 }
 
 function showsNotification() {
