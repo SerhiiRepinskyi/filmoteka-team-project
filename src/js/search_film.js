@@ -69,13 +69,12 @@ export default async function renderSerchMovies(option1) {
   }
 }
 
-
 function info() {
-  Notiflix.Notify.info('Enter your data to search.');
+  Notiflix.Notify.info('Enter something in the search field.');
 }
 
 function warning() {
-  Notiflix.Notify.failure('The film with such a title does not exist.');
+  Notiflix.Notify.failure('Could not find film with this title.');
 }
 
 function showsNotification() {

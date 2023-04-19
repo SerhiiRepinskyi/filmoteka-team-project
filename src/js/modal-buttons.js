@@ -24,8 +24,9 @@ const blockButtonsOnNoUser = async () => {
 
       Block.dots(
         '.modal-card__btn-wrapper',
-        'Log in to add movies to library',
+        'Log in to add movies to the library',
         {
+          messageMaxLength: 50,
           svgSize: '70px',
           svgColor: '#66000000',
           backgroundColor: 'rgba(255,255,255,0.5)',

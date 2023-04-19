@@ -32,7 +32,7 @@ const logout = async e => {
     async () => {
       await signOut(auth);
       Notify.success(
-        'You are loged out. See you soon. Redirecting to frontpage'
+        'You have been logged out. See you soon. Redirecting to frontpage'
       );
       setTimeout(() => window.location.replace('./index.html'), 2000);
     },
