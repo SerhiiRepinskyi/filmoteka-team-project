@@ -18,4 +18,13 @@ export function openModalTrailer(url) {
   );
 
   instance.show();
+
+  // Close trailer by Escape
+  window.addEventListener('keydown', closeTrailerByEsc);
+    function closeTrailerByEsc(e) {
+      if (e.code === 'Escape') {
+        instance.close();
+        window.removeEventListener('keydown', closeTrailerByEsc);
+      }
+    }
 }
